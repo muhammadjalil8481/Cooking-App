@@ -12,7 +12,8 @@ const StackNavigator = () => {
         headerTransparent: true,
         animationTypeForReplace: 'push',
         animation: 'simple_push',
-      }}>
+      }}
+      initialRouteName="Login">
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Onboarding" component={Onboarding} />
     </Stack.Navigator>
