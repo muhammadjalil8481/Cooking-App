@@ -1,11 +1,9 @@
 export const Colors = {
-    primary: "",
-    secondary: "",
-    teriary: "",
-
-    Card: {
-        Black: '#000',
-        Grey: '#AAA',
-        White: '#FFF'
-    }
-}
+  primary: '#C8C6C6',
+  secondary: '#FFFFFF',
+  tertiary: '#000',
+  cards: {
+    lightBlue: '#ECF9FF',
+    GreyText: '#a1a1a1',
+  },
+};
