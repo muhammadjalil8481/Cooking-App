@@ -11,10 +11,10 @@ import {
 } from 'react-native';
 import React from 'react';
 import Assets from '../assets';
-import {Colors} from '../assets/constants/Colors';
+import { Colors } from '../assets/constants/Colors';
 import ButtonComponent from '../components/buttoncompone';
-import {color} from 'react-native-reanimated';
-const WIDTH = Dimensions.get('window').width;
+import { color } from 'react-native-reanimated';
+const { WIDTH } = Dimensions.get('window');
 const HEIGHT = Dimensions.get('window').height;
 
 const Splash = () => {
@@ -27,13 +27,14 @@ const Splash = () => {
         resizeMode="cover">
         <View
           style={{
+            overflow: 'visible',
             // width: WIDTH < 375 ? 70 : 80,
             // height: WIDTH < 375 ? 70 : 80,
             position: 'absolute',
             bottom: 0,
             paddingBottom: 10,
           }}>
-          <View style={{paddingHorizontal: 15}}>
+          <View style={{ paddingHorizontal: 15 }}>
             <Text numberOfLines={2} style={styles.headtext}>
               Add your meal & meal planner
             </Text>
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
   },
 
   image: {
+    overflow: 'visible',
     width: '100%',
     height: '100%',
     resizeMode: 'cover',

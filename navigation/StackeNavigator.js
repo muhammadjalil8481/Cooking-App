@@ -1,4 +1,4 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import Login from '../screens/Login';
 import Onboarding from '../screens/Onboarding';
@@ -14,9 +14,10 @@ const StackNavigator = () => {
         animationTypeForReplace: 'push',
         animation: 'simple_push',
       }}
-      initialRouteName="Splash">
-      <Stack.Screen name="Splash" component={Splash} />
+      initialRouteName="">
       <Stack.Screen name="Onboarding" component={Onboarding} />
+      <Stack.Screen name="Splash" component={Splash} />
+
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );

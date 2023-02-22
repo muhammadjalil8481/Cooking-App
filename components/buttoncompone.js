@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
-import {Button, TouchableRipple} from 'react-native-paper';
-import {Colors} from '../assets/constants/Colors';
+import { Button, TouchableRipple } from 'react-native-paper';
+import { Colors } from '../assets/constants/Colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import Assets from '../assets';
@@ -27,7 +27,7 @@ const ButtonComponent = ({
       onPress={onPress}
       style={[
         styles.container,
-        {height: height, width: width, backgroundColor: buttonColor},
+        { height: height, width: width, backgroundColor: buttonColor },
       ]}>
       <View
         style={{
@@ -45,7 +45,7 @@ const ButtonComponent = ({
             fontFamily: 'Bahnschrift',
             fontWeight: 400,
             textAlign: 'center',
-            paddingHorizontal: 30,
+            paddingHorizontal: 20,
           }}>
           {buttonText}
         </Text>
@@ -58,13 +58,14 @@ const ButtonComponent = ({
               borderRadius: 100,
               justifyContent: 'center',
               alignItems: 'center',
-              width: 45,
-              height: 45,
+              width: 40,
+              height: 40,
+              paddingHorizontal: 20
             }}>
             <Image
               source={Assets.icon.play}
               resizeMode="contain"
-              style={{width: '90%'}}
+              style={{}}
             />
           </View>
         )}
@@ -77,8 +78,18 @@ export default ButtonComponent;
 
 const styles = StyleSheet.create({
   container: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // width: '80%',
+    // height: 55,
+    borderRadius: 30,
+    // borderWidth: 2,
+    // borderColor: '#fff',
+    // marginBottom: -65,
     borderRadius: 50,
     justifyContent: 'center',
+    paddingHorizontal: 10,
     shadowColor: Colors.tertiary,
     shadowOffset: {
       width: 0,
