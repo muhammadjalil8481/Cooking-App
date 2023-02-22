@@ -13,6 +13,7 @@ import React from 'react';
 import Assets from '../assets';
 import {Colors} from '../assets/constants/Colors';
 import ButtonComponent from '../components/buttoncompone';
+import {color} from 'react-native-reanimated';
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
@@ -43,13 +44,13 @@ const Splash = () => {
           </View>
           <View
             style={{
-              height: WIDTH <= 375 ? 40 : 55,
+              height: WIDTH <= 375 ? 40 : 57,
               width: WIDTH <= 323 ? 233 : 205,
               marginTop: 10,
               alignItems: 'center',
               justifyContent: 'center',
-              borderRadius: 20,
-
+              borderRadius: 35,
+              backgroundColor: Colors.primary,
               paddingHorizontal: 25,
               alignSelf: 'center',
               marginBottom: 10,

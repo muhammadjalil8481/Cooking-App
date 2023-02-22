@@ -58,8 +58,8 @@ const ButtonComponent = ({
               borderRadius: 100,
               justifyContent: 'center',
               alignItems: 'center',
-              width: 47,
-              height: 47,
+              width: 45,
+              height: 45,
             }}>
             <Image
               source={Assets.icon.play}
