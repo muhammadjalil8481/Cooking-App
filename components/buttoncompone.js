@@ -15,10 +15,7 @@ const ButtonComponent = ({
   height,
   width,
   disabled,
-  icon1,
-  Icon1,
-  SvgICon,
-  paddingHorizontal,
+
   circleIcon,
 }) => {
   return (
@@ -51,23 +48,17 @@ const ButtonComponent = ({
         </Text>
 
         {circleIcon && (
-          <View
-            style={{
-              // marginLeft: 30,
-              backgroundColor: 'red',
-              borderRadius: 100,
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: 40,
-              height: 40,
-              paddingHorizontal: 20
-            }}>
-            <Image
-              source={Assets.icon.play}
-              resizeMode="contain"
-              style={{}}
-            />
+          <View style={styles.container}>
+            <View style={styles.box} >
+              <Image
+                source={Assets.icon.play}
+                resizeMode="contain"
+                style={{}}
+              />
+            </View>
           </View>
+
+
         )}
       </View>
     </TouchableRipple>
@@ -80,13 +71,6 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: 'center',
     justifyContent: 'center',
-    alignItems: 'center',
-    // width: '80%',
-    // height: 55,
-    borderRadius: 30,
-    // borderWidth: 2,
-    // borderColor: '#fff',
-    // marginBottom: -65,
     borderRadius: 50,
     justifyContent: 'center',
     paddingHorizontal: 10,
@@ -100,6 +84,15 @@ const styles = StyleSheet.create({
 
     elevation: 15,
   },
+  box: {
+    width: '60%',
+    aspectRatio: 1,
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50
+
+  }
 });
 
 {

@@ -1,45 +1,32 @@
-// import Animated, {
-//   useSharedValue,
-//   useAnimatedStyle,
-// } from 'react-native-reanimated';
-// import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
-// const AnimationIMG = props => {
-//   const rotation = useSharedValue(0);
-//   const offset = useSharedValue(0);
 
-//   const animatedStyles = useAnimatedStyle(() => {
-//     return {
-//       transform: [{translateX: offset.value * 255}],
-//     };
-//   });
+import { StyleSheet, Text, Image, View, Easing, Animated } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { WIDTH } from '../assets/constants/Dimensions';
 
-//   return (
-//     <>
-//       <Animated.View style={[styles.box, animatedStyles]} />
-//       <TouchableOpacity
-//         onPress={() => (offset.value = Math.random())}
-//         title="Move">
-//         <Text>BtnText </Text>
-//       </TouchableOpacity>
-//     </>
-//   );
-// };
-// export default AnimationIMG;
-// const styles = StyleSheet.create({
-//   box: {width: 100, height: 100, backgroundColor: 'green'},
-// });
+const ImgAnimation = ({ Food1, Food2 }) => {
+  let rotateValueHolder = new Animated.Value(0);
 
-import {StyleSheet, Text, Image, View, Easing, Animated} from 'react-native';
-import React, {useState, useEffect} from 'react';
-import {WIDTH} from '../assets/constants/Dimensions';
+  const startImageRotateFunction = () => {
+    rotateValueHolder.setValue(0);
+    Animated.timing(rotateValueHolder, {
+      toValue: 1,
+      duration: 500,
+      easing: Easing.linear,
+      useNativeDriver: false,
+    }).start(() => startImageRotateFunction());
+  };
 
-const ImgAnimation = ({Food1, Food2}) => {
+  const RotateData = rotateValueHolder.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg'],
+  });
+
   const [currentSlide, setCurrentSlide] = useState(false);
-  const position = new Animated.ValueXY({x: 0, y: 0});
+  const position = new Animated.ValueXY({ x: 0, y: 0 });
   // const [animation] = useState(new Animated.ValueXY({x: 0, y: 0}));
 
-  const position1 = new Animated.ValueXY({x: 0, y: 0});
+  const position1 = new Animated.ValueXY({ x: 0, y: 0 });
   useEffect(() => {
     Animated.spring(position, {
       toValue: 250,
@@ -49,7 +36,7 @@ const ImgAnimation = ({Food1, Food2}) => {
     }).start();
 
     Animated.timing(animation, {
-      toValue: {x: 200, y: 200},
+      toValue: { x: 200, y: 200 },
       duration: 3000,
       easing: Easing.circle, // Easing is an additional import from react-native
       useNativeDriver: true,
@@ -62,26 +49,32 @@ const ImgAnimation = ({Food1, Food2}) => {
   useEffect(() => {
     Animated.timing(animation, {
       toValue: 0.6,
-      duration: 3000,
+      duration: 9000,
       useNativeDriver: true,
     }).start();
   }, []);
 
   const rotate = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '180deg'],
+    outputRange: ['90deg', '260deg'],
   });
 
   const scale = animation.interpolate({
-    inputRange: [0, 1],
+    inputRange: [1, 2],
     outputRange: [1, 2],
   });
 
   const animatedStyle = {
-    transform: [{rotate}, {scale}],
+    transform: [{ rotate }, { scale }],
   };
 
   return (
+    useEffect(() => {
+      startImageRotateFunction();
+      setTimeout(() => {
+        // navigation.replace('login');
+      }, 1000);
+    }, []),
     <>
       <View
         style={{
@@ -94,19 +87,30 @@ const ImgAnimation = ({Food1, Food2}) => {
         <Animated.View
           style={{
             paddingLeft: 30,
-            //    transform: [{translateY: position.y}]
+            transform: [{ translateY: position.y }]
           }}>
+
+          <Animated.Image
+            source={Food1}
+            resizeMode="contain"
+            style={{
+              width: 224,
+              height: 43,
+              transform: [{ rotate: RotateData }],
+            }}
+
+          />
           {currentSlide === true ? (
             <Image
               source={Food1}
               resizeMode="contain"
-              style={[{width: '100%'}, animatedStyle]}
+              style={[{ width: '100%' }, animatedStyle]}
             />
           ) : (
             <Animated.Image
               source={Food1}
               resizeMode="contain"
-              style={[{width: '100%'}, animatedStyle]}
+              style={[{ width: '100%' }, animatedStyle]}
             />
           )}
         </Animated.View>
@@ -120,8 +124,8 @@ const ImgAnimation = ({Food1, Food2}) => {
           top: 200,
         }}>
         <Animated.View
-          style={{paddingLeft: 30, transform: [{translateY: position1.y}]}}>
-          <Image source={Food2} resizeMode="contain" style={{width: '100%'}} />
+          style={{ paddingLeft: 30, transform: [{ translateY: position1.y }] }}>
+          <Image source={Food2} resizeMode="contain" style={{ width: '100%' }} />
         </Animated.View>
       </View>
     </>
