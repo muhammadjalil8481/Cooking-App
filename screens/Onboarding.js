@@ -1,433 +1,18 @@
-// import {
-//   StyleSheet,
-//   Text,
-//   View,
-//   TouchableOpacity,
-//   Dimensions,
-//   Image,
-//   ImageBackground,
-//   FlatList,
-//   StatusBar,
-// } from 'react-native';
-// import React, { useEffect, useRef, useState } from 'react';
-// import Icon from 'react-native-vector-icons/FontAwesome';
-// import Orientation from 'react-native-orientation-locker';
-// import { useIsFocused } from '@react-navigation/native';
-// import Assets from '../assets';
-// import { color } from 'react-native-reanimated';
-// import { Colors } from '../assets/constants/Colors';
-// import ButtonComponent from '../components/buttoncompone';
-// const WIDTH = Dimensions.get('window').width;
-// const HEIGHT = Dimensions.get('window').height;
-// const Onboarding = ({ navigation }) => {
-//   const isFocused = useIsFocused();
-//   useEffect(() => {
-//     Orientation.lockToPortrait();
-//   }, [isFocused]);
-//   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-//   const ref = useRef();
-//   const updateCurrentSlideIndex = e => {
-//     const contentOffsetX = e.nativeEvent.contentOffset.x;
-//     const currentIndex = Math.round(contentOffsetX / WIDTH);
-//     setCurrentSlideIndex(currentIndex);
-//   };
-
-//   const goToNextSlide = () => {
-//     const nextSlideIndex = currentSlideIndex + 1;
-
-//     if (nextSlideIndex != slides.length) {
-//       const offset = nextSlideIndex * WIDTH;
-//       ref?.current.scrollToOffset({ offset });
-//       setCurrentSlideIndex(currentSlideIndex + 1);
-//     } else {
-//       const offset = 0 * WIDTH;
-//       ref?.current.scrollToOffset({ offset });
-//       setCurrentSlideIndex(0);
-//     }
-//   };
-//   const goToPrevSlide = () => {
-//     const prevSlideIndex = currentSlideIndex - 1;
-
-//     if (prevSlideIndex != slides.length) {
-//       const offset = prevSlideIndex * WIDTH;
-//       ref?.current.scrollToOffset({ offset });
-//       setCurrentSlideIndex(currentSlideIndex - 1);
-//     }
-//   };
-//   return (
-//     <View style={styles.container}>
-//       <FlatList
-//         ref={ref}
-//         onMomentumScrollEnd={updateCurrentSlideIndex}
-//         data={slides}
-//         contentContainerStyle={{ flexGrow: 1 }}
-//         style={{
-//           flex: 1,
-//         }}
-//         horizontal
-//         pagingEnabled
-//         showsHorizontalScrollIndicator={false}
-//         renderItem={({ item }) => (
-//           <Slide
-//             currentSlideIndex={currentSlideIndex}
-//             goToNextSlide={goToNextSlide}
-//             goToPrevSlide={goToPrevSlide}
-//             navigation={navigation}
-//             item={item}
-//           />
-//         )}
-//       />
-//     </View>
-//   );
-// };
-
-// const Slide = ({
-//   item,
-//   currentSlideIndex,
-//   goToNextSlide,
-//   goToPrevSlide,
-//   navigation,
-// }) => {
-//   return (
-//     <View
-//       style={{
-//         alignItems: 'center', justifyContent: 'center',
-//         width: WIDTH, backgroundColor: 'pink'
-//       }}>
-
-//       {item.id === 1 || item.id === 3 ? (
-//         <>
-//           <ImageBackground
-//             source={Assets.backgroundImages.whiteBG}
-//             style={{
-//               overflow: 'visible',
-//               width: '100%',
-//               height: '100%',
-//               resizeMode: 'cover',
-
-//               // alignItems: 'center', justifyContent: 'center', width: WIDTH,
-//               // position: 'absolute',
-//               // top: 0,
-//               // left: 0,
-//               // right: 0,
-//               // bottom: 0,
-//             }}>
-//             <View style={{ position: 'absolute', bottom: 30, width: '100%', paddingHorizontal: 15 }}>
-//               <View
-//                 style={{
-//                   // justifyContent: 'center',
-//                   // alignItems: 'center',
-//                   // position: 'absolute',
-//                   // top: 65,
-//                   alignSelf: 'center'
-//                 }}>
-
-//                 <Text style={{
-//                   color: '#000',
-//                   fontSize: 27,
-//                   // textAlign: 'center',
-//                   marginVertical: 5,
-//                   lineHeight: 36,
-//                   fontFamily: 'Crispy Cream-Bold',
-
-//                 }}>
-//                   Add your meal & meal planner
-//                 </Text>
-
-//                 <Text
-//                   style={{
-//                     color: '#000',
-//                     fontSize: 12,
-//                     // textAlign: 'center',
-//                     marginVertical: 5,
-//                     lineHeight: 20,
-//                     fontFamily: 'Crispy Cream-Bold',
-
-//                   }}>
-//                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...
-//                 </Text>
-//               </View>
-//               <View
-//                 style={{
-//                   height: WIDTH <= 375 ? 40 : 57,
-//                   width: WIDTH <= 323 ? 233 : 205,
-//                   alignSelf: 'flex-end',
-//                   paddingHorizontal: 25
-//                 }}>
-//                 <ButtonComponent
-//                   circleIcon
-//                   buttonText="Lets Start"
-//                   buttonColor={Colors.primary}
-//                   textColor={Colors.secondary}
-//                   onPress={navigation.na}
-
-//                   height={WIDTH <= 375 ? 40 : 57}
-//                   width={WIDTH <= 323 ? 233 : 205}
-//                 />
-//               </View>
-//             </View>
-
-//           </ImageBackground>
-
-//         </>
-//       ) : (
-//         <>
-//           <ImageBackground
-//             source={Assets.backgroundImages.BackGroundBG}
-//             style={{
-//               overflow: 'visible',
-//               width: '100%',
-//               height: '100%',
-//               resizeMode: 'cover',
-//               // alignItems: 'center', justifyContent: 'center', width: WIDTH,
-//               // position: 'absolute',
-//               // top: 0,
-//               // left: 0,
-//               // right: 0,
-//               // bottom: 0,
-//             }}>
-
-//             <View style={{ backgroundColor: "yellow" }}>
-
-//               <Image source={Assets.backgroundImages.FoodItem1} />
-
-//             </View>
-//             <View style={{ position: 'absolute', bottom: 30, width: '100%', paddingHorizontal: 15 }}>
-//               <View
-//                 style={{
-//                   // justifyContent: 'center',
-//                   // alignItems: 'center',
-//                   // position: 'absolute',
-//                   // top: 65,
-//                   alignSelf: 'center'
-//                 }}>
-
-//                 <Text style={{
-//                   color: '#fff',
-//                   fontSize: 27,
-//                   // textAlign: 'center',
-//                   marginVertical: 5,
-//                   lineHeight: 36,
-//                   fontFamily: 'Crispy Cream-Bold',
-
-//                 }}>
-//                   Add your meal & meal planner
-//                 </Text>
-
-//                 <Text
-//                   style={{
-//                     color: '#FFF',
-//                     fontSize: 12,
-//                     // textAlign: 'center',
-//                     marginVertical: 5,
-//                     lineHeight: 20,
-//                     fontFamily: 'Crispy Cream-Bold',
-
-//                   }}>
-//                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...
-//                 </Text>
-//               </View>
-//               <View
-//                 style={{
-//                   height: WIDTH <= 375 ? 40 : 57,
-//                   width: WIDTH <= 323 ? 233 : 205,
-//                   alignSelf: 'flex-end',
-//                   paddingHorizontal: 25
-//                 }}>
-//                 <ButtonComponent
-//                   circleIcon
-//                   buttonText="Lets Start"
-//                   buttonColor={Colors.primary}
-//                   textColor={Colors.secondary}
-//                   // onPress= navigation.navigate('namescreen', {
-//                   //     showVerifyScreen: true,
-//                   //   })
-//                   // }
-//                   height={WIDTH <= 375 ? 40 : 57}
-//                   width={WIDTH <= 323 ? 233 : 205}
-//                 />
-//               </View>
-//             </View>
-
-//           </ImageBackground>
-//         </>
-//       )}
-//     </View>
-//   );
-// };
-// const Indicators = ({
-//   currentSlideIndex,
-//   goToPrevSlide,
-//   goToNextSlide,
-//   reanimatedStyle,
-//   reanimatedIndicatorStyle,
-//   reanimatedIndicator1Style,
-//   reanimatedIndicator2Style,
-//   reanimatedIndicatorColorStyle,
-// }) => {
-//   return (
-//     <View
-//       style={{
-//         justifyContent: 'space-between',
-//         paddingHorizontal: 20,
-//         position: 'absolute',
-//         bottom: hasNotch ? 25 : 15,
-//         left: 0,
-//         right: 0,
-//       }}>
-//       <View
-//         style={{
-//           flexDirection: 'row',
-//           justifyContent: 'space-between',
-//         }}>
-//         <Animated.View style={[reanimatedStyle]}>
-//           <FAB
-//             style={[
-//               styles.fab,
-//               {
-//                 height: WIDTH < 375 ? 40 : 55,
-//                 width: WIDTH < 375 ? 40 : 55,
-//               },
-//             ]}
-//             size="small"
-//             icon="arrow-left"
-//             color={Colors.secondary}
-//             onPress={() => goToPrevSlide()}
-//           />
-//         </Animated.View>
-//         <ButtonComponent
-//           buttonText="Next"
-//           icon="arrow-right"
-//           buttonColor={Colors.secondary}
-//           textColor={Colors.primary}
-//           onPress={() => goToNextSlide()}
-//           height={WIDTH < 375 ? 40 : 55}
-//           width={WIDTH < 375 ? 110 : 150}
-//           viewOnRight={true}
-//         />
-//       </View>
-//       {/* Indicator container */}
-//       <View
-//         style={{
-//           flexDirection: 'row',
-//           justifyContent: 'center',
-//           marginTop: HEIGHT / 20,
-//         }}>
-//         {/* Render indicator */}
-//         {slides.map((_, index) => {
-//           return (
-//             <>
-
-//               <Animated.View
-//                 key={index}
-//                 style={[
-//                   styles.indicator,
-//                   index === 0 && reanimatedIndicatorStyle,
-//                   index === 1 && reanimatedIndicator1Style,
-//                   index === 2 && reanimatedIndicator2Style,
-//                   reanimatedIndicatorColorStyle,
-//                   currentSlideIndex == index && {
-//                     opacity: 1,
-//                   },
-//                 ]}
-//               />
-//               <Indicators
-//                 currentSlideIndex={currentSlideIndex}
-//                 goToNextSlide={goToNextSlide}
-//                 goToPrevSlide={goToPrevSlide}
-//                 navigation={navigation}
-//                 reanimatedStyle={reanimatedStyle}
-//                 reanimatedIndicatorStyle={reanimatedIndicatorStyle}
-//                 reanimatedIndicator1Style={reanimatedIndicator1Style}
-//                 reanimatedIndicator2Style={reanimatedIndicator2Style}
-//                 reanimatedIndicatorColorStyle={reanimatedIndicatorColorStyle}
-//               />
-//             </>
-//           );
-//         })}
-//       </View>
-//     </View>
-//   );
-// };
-
-// const slides = [
-//   {
-//     id: 1,
-//     image: Assets.backgroundImages.whiteBG,
-//     // img: Images.BackGround.Bg1
-//   },
-//   {
-//     id: 2,
-//     image: Assets.backgroundImages.FoodItem1,
-//     // img: Images.BackGround.storybg1,
-//     text: `Welcome, you infinitely radiant being of light in human clothing. We've been waiting for you. You have a powerful soul signature, a unique vibration. And whether you remember it or not, you've come to Earth at this time to offer your resonance.`,
-//   },
-//   {
-//     id: 3,
-//     image: Assets.backgroundImages.whiteBG,
-//     // img: Images.BackGround.storybg2,
-//     text: `AND. Embodying our fullness down here can be tricky! So with VibeBloom, we quest together. Kindling one another, as we employ joyful, powerful tools for coming home to ourselves and being all that we truly, uniquely are.`,
-//   },
-
-
-// ];
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     // alignItems: "center",
-//     // justifyContent: "center",
-//   },
-//   indicator: {
-//     height: 15,
-//     width: 15,
-//     backgroundColor: 'rgba(151, 155, 159, 0.4)',
-//     marginHorizontal: 3,
-//     borderRadius: 10,
-//   },
-//   btn2: {
-//     alignSelf: 'center',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     width: '80%',
-//     height: 55,
-//     borderRadius: 30,
-//     borderWidth: 2,
-//     borderColor: '#000',
-//     marginBottom: -65,
-//   },
-//   btn1: {
-//     justifyContent: 'flex-end',
-//     alignSelf: 'center',
-//     justifyContent: 'center',
-//     backgroundColor: Colors.primary,
-//     alignItems: 'center',
-//     width: '50%',
-//     height: 55,
-//     borderRadius: 30,
-//     marginBottom: 20,
-//   },
-//   headtext: {
-//     fontWeight: '600',
-//     fontSize: 27,
-//     color: '#000',
-
-//   },
-// });
-// export default Onboarding;
-
-
-
-
-import { StyleSheet, Text, View, ImageBackground, FlatList } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  TouchableOpacity,
+  Image,
+  FlatList,
+} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import Assets from '../assets';
-
-import { Colors } from '../assets/constants/Colors';
+import {Colors} from '../assets/constants/Colors';
 import ButtonComponent from '../components/buttoncompone';
 import deviceInfoModule from 'react-native-device-info';
-import { FAB } from 'react-native-paper';
+import {FAB} from 'react-native-paper';
 // import Lottie from 'lottie-react-native';
 import Animated, {
   useSharedValue,
@@ -437,12 +22,14 @@ import Animated, {
   useDerivedValue,
   interpolateColor,
 } from 'react-native-reanimated';
-import { WIDTH, HEIGHT } from '../assets/constants/Dimensions';
+import {WIDTH, HEIGHT} from '../assets/constants/Dimensions';
+import ImgAnimation from '../components/ImgAnimation';
+
 // import { Fonts } from '../assets/fonts/fonts';
 
 let hasNotch = deviceInfoModule.hasNotch();
 
-const Onboarding = ({ navigation }) => {
+const Onboarding = ({navigation}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const ref = useRef();
 
@@ -518,13 +105,13 @@ const Onboarding = ({ navigation }) => {
   };
   const goToNextSlide = () => {
     const nextSlideIndex = currentSlideIndex + 1;
-    if (currentSlideIndex === 2) {
+    if (currentSlideIndex === 3) {
       navigation.replace('Login');
       return;
     }
     if (nextSlideIndex != slides.length) {
       const offset = nextSlideIndex * WIDTH;
-      ref?.current.scrollToOffset({ offset });
+      ref?.current.scrollToOffset({offset});
       setCurrentSlideIndex(currentSlideIndex + 1);
     }
   };
@@ -535,7 +122,7 @@ const Onboarding = ({ navigation }) => {
     }
     if (nextSlideIndex != slides.length) {
       const offset = nextSlideIndex * WIDTH;
-      ref?.current.scrollToOffset({ offset });
+      ref?.current.scrollToOffset({offset});
       setCurrentSlideIndex(currentSlideIndex - 1);
     }
   };
@@ -555,7 +142,7 @@ const Onboarding = ({ navigation }) => {
         onScrollEndDrag={updateCurrentSlideIndex}
         showsHorizontalScrollIndicator={false}
         bounces={false}
-        renderItem={({ item }) => <Slide item={item} />}
+        renderItem={({item}) => <Slide item={item} />}
       />
       <Indicators
         currentSlideIndex={currentSlideIndex}
@@ -574,7 +161,7 @@ const Onboarding = ({ navigation }) => {
 
 export default Onboarding;
 
-const Slide = ({ item }) => {
+const Slide = ({item}) => {
   return (
     <View
       style={{
@@ -584,11 +171,18 @@ const Slide = ({ item }) => {
         height: HEIGHT,
       }}>
       <ImageBackground
-        source={item.id === 1 ? Assets.backgroundImages.whiteBG : Assets.backgroundImages.BackGroundBG}
+        source={
+          item.id === 1
+            ? Assets.backgroundImages.whiteBG
+            : Assets.backgroundImages.BackGroundBG
+        }
         resizeMode="cover"
         style={[
           styles.image,
-          { backgroundColor: item.id !== 1 ? Assets.backgroundImages.whiteBG : 'transparent' },
+          {
+            backgroundColor:
+              item.id !== 1 ? Assets.backgroundImages.whiteBG : 'transparent',
+          },
         ]}>
         {item.id === 1 && (
           <View
@@ -598,9 +192,7 @@ const Slide = ({ item }) => {
               bottom: 0,
               left: 0,
               right: 0,
-            }}>
-
-          </View>
+            }}></View>
         )}
         <View
           style={{
@@ -611,16 +203,21 @@ const Slide = ({ item }) => {
           {item.id !== 1 && (
             <>
               <View
-                style={{
-                  width: WIDTH < 375 ? 70 : 80,
-                  height: WIDTH < 375 ? 70 : 80,
-                  position: 'absolute',
-                  right: 30,
-                  top: -15,
-                }}>
-
+                style={
+                  {
+                    // width: WIDTH < 375 ? 70 : 80,
+                    // height: WIDTH < 375 ? 70 : 80,
+                    // position: 'absolute',
+                    // // right: 0,
+                    // // top: 0,
+                    // left: 180,
+                    // top: -140,
+                  }
+                }>
+                <ImgAnimation Food1={item.Food1} />
+                <ImgAnimation Food2={item.Food2} />
+                {/* <Image source={item.Food1} resizeMode="contain" /> */}
               </View>
-
             </>
           )}
         </View>
@@ -638,20 +235,9 @@ const Slide = ({ item }) => {
                     lineHeight: HEIGHT < 700 ? 40 : 55,
                   },
                 ]}
-                numberOfLines={1}
+                numberOfLines={2}
                 adjustsFontSizeToFit>
-                Get Yourself <Text style={{ fontWeight: 400 }}>Healthy</Text>
-              </Text>
-              <Text
-                style={[
-                  styles.title,
-                  {
-                    lineHeight: HEIGHT < 700 ? 40 : 55,
-                  },
-                ]}
-                numberOfLines={1}
-                adjustsFontSizeToFit>
-                with Us!
+                Add your meal & meal planner
               </Text>
             </>
           ) : item.id === 2 ? (
@@ -659,28 +245,11 @@ const Slide = ({ item }) => {
               <Text
                 style={[
                   styles.title,
-                  { color: Colors.tertiary, lineHeight: HEIGHT < 700 ? 40 : 55 },
+                  {color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55},
                 ]}
-                numberOfLines={1}
+                numberOfLines={2}
                 adjustsFontSizeToFit>
-                Get Yourself{' '}
-                <Text style={{ fontWeight: 400, color: Colors.primary }}>
-                  Healthy
-                </Text>
-              </Text>
-              <Text
-                style={[
-                  styles.title,
-                  { color: Colors.tertiary, lineHeight: HEIGHT < 700 ? 40 : 55 },
-                ]}
-                numberOfLines={1}
-                adjustsFontSizeToFit>
-                &
-                <Text style={{ fontWeight: 400, color: Colors.primary }}>
-                  {' '}
-                  Strong{' '}
-                </Text>
-                with Us!
+                Add your meal & meal planner
               </Text>
             </>
           ) : item.id === 3 ? (
@@ -688,20 +257,43 @@ const Slide = ({ item }) => {
               <Text
                 style={[
                   styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55, },
+                  {color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55},
                 ]}
-                numberOfLines={1}
+                numberOfLines={2}
                 adjustsFontSizeToFit>
                 Add your meal & meal planner
               </Text>
-
+            </>
+          ) : item.id === 3 ? (
+            <>
+              <Text
+                style={[
+                  styles.title,
+                  {color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55},
+                ]}
+                numberOfLines={2}
+                adjustsFontSizeToFit>
+                Add your meal & meal planner
+              </Text>
+            </>
+          ) : item.id === 4 ? (
+            <>
+              <Text
+                style={[
+                  styles.title,
+                  {color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55},
+                ]}
+                numberOfLines={2}
+                adjustsFontSizeToFit>
+                Add your meal & meal planner
+              </Text>
             </>
           ) : null}
           <Text
             style={[
               styles.subTitle,
               {
-                color: item.id !== 1 ? Colors.primary : Colors.primary,
+                color: item.id !== 1 ? '#fff' : Colors.tertiary,
                 lineHeight: HEIGHT < 700 ? 25 : 30,
               },
             ]}
@@ -766,7 +358,7 @@ const Indicators = ({
           })}
         </View>
         <Animated.View style={[reanimatedStyle]}>
-          <FAB
+          {/* <FAB
             style={[
               styles.fab,
               {
@@ -778,28 +370,30 @@ const Indicators = ({
             icon="arrow-left"
             color={Colors.secondary}
             onPress={() => goToNextSlide()}
-          />
+          /> */}
+          <TouchableOpacity
+            onPress={() => goToNextSlide()}
+            style={[
+              styles.fab,
+              {height: WIDTH < 375 ? 40 : 55, width: WIDTH < 375 ? 40 : 55},
+            ]}>
+            <Image source={Assets.icon.playR} />
+          </TouchableOpacity>
         </Animated.View>
-        {currentSlideIndex == 0 ?
-
-          (
-            <ButtonComponent
-              circleIcon
-              buttonText="Next"
-              icon="arrow-right"
-              buttonColor={Colors.primary}
-              textColor={Colors.secondary}
-              onPress={() => goToNextSlide()}
-              height={WIDTH < 375 ? 40 : 55}
-              width={WIDTH < 375 ? 110 : 150}
-              viewOnRight={true}
-
-            />
-          ) : null
-        }
-
+        {currentSlideIndex == 0 ? (
+          <ButtonComponent
+            circleIcon
+            buttonText="Lets Start"
+            icon="arrow-right"
+            buttonColor={Colors.primary}
+            textColor={Colors.secondary}
+            onPress={() => goToNextSlide()}
+            height={WIDTH < 375 ? 40 : 55}
+            width={WIDTH < 375 ? 110 : 180}
+            viewOnRight={true}
+          />
+        ) : null}
       </View>
-
     </View>
   );
 };
@@ -815,19 +409,21 @@ const styles = StyleSheet.create({
   },
   title: {
     // fontFamily: Fonts.default,
-    fontSize: 34.25,
+    fontSize: 27.25,
     fontWeight: 700,
     color: '#1E0203',
     letterSpacing: 1.75,
+    marginTop: 25,
   },
   subTitle: {
     // fontFamily: Fonts.default,
     fontSize: 16,
-    fontWeight: 200,
+    fontWeight: 340,
     color: '#1E0203',
-    marginTop: 0,
+    marginTop: 25,
     marginBottom: 65,
   },
+
   indicator: {
     height: 13,
     width: 13,
@@ -856,13 +452,15 @@ const styles = StyleSheet.create({
 const slides = [
   {
     id: 1,
-    title: 'Get Yourself Healthy & Strong with Us!',
+    title: '!',
     subtitle:
       'Lorem ipsum dolor sit amet, consetetur sscing elitr, sed diam nonumy eirmod tempor',
   },
   {
     id: 2,
     title: 'Get Yourself Healthy & Strong with Us!',
+    Food1: Assets.FoodItems.FoodItem1,
+    Food2: Assets.FoodItems.fooditem2,
     subtitle:
       'Lorem ipsum dolor sit amet, consetetur sscing elitr, sed diam nonumy eirmod tempor',
     // animation: Assets.animation.onboardAnimation2,
@@ -870,13 +468,19 @@ const slides = [
   {
     id: 3,
     title: 'Transform your life for Better!',
+    Food1: Assets.FoodItems.fooditem2,
+    Food2: Assets.FoodItems.fooditem6,
+    subtitle:
+      'Lorem ipsum dolor sit amet, consetetur sscing elitr, sed diam nonumy eirmod tempor',
+    // animation: Assets.animation.onboardAnimation3,
+  },
+  {
+    id: 4,
+    title: 'Transform your life for Better!',
+    Food1: Assets.FoodItems.fooditem2,
+    Food2: Assets.FoodItems.FoodItem1,
     subtitle:
       'Lorem ipsum dolor sit amet, consetetur sscing elitr, sed diam nonumy eirmod tempor',
     // animation: Assets.animation.onboardAnimation3,
   },
 ];
-
-
-
-
-
