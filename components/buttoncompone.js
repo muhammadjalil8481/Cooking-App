@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
-import { Button, TouchableRipple } from 'react-native-paper';
+import { Button, FAB, TouchableRipple } from 'react-native-paper';
 import { Colors } from '../assets/constants/Colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import Assets from '../assets';
+import { WIDTH } from '../assets/constants/Dimensions';
 
 const ButtonComponent = ({
   icon,
@@ -48,14 +49,24 @@ const ButtonComponent = ({
         </Text>
 
         {circleIcon && (
+
+
           <View style={styles.container}>
-            <View style={styles.box} >
-              <Image
-                source={Assets.icon.play}
-                resizeMode="contain"
-                style={{}}
-              />
-            </View>
+
+            <FAB
+              style={[
+                styles.fab,
+                {
+                  height: WIDTH < 375 ? 30 : 35,
+                  width: WIDTH < 375 ? 30 : 35,
+                },
+              ]}
+              size="small"
+              Icon="arrow-left"
+              color={Colors.secondary}
+              onPress={onPress} />
+
+
           </View>
 
 
@@ -92,7 +103,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 50
 
-  }
+  },
+  fab: {
+    height: 35,
+    width: 35,
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'red',
+    shadowColor: Colors.secondary,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 7,
+    // },
+    // shadowOpacity: 0.43,
+    // shadowRadius: 9.51,
+    // elevation: 15,
+  },
+
 });
 
 {
