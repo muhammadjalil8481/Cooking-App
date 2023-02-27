@@ -2,9 +2,6 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
 import { Button, FAB, TouchableRipple } from 'react-native-paper';
 import { Colors } from '../assets/constants/Colors';
-import Icon from 'react-native-vector-icons/AntDesign';
-import Icon2 from 'react-native-vector-icons/MaterialIcons';
-import Assets from '../assets';
 import { WIDTH } from '../assets/constants/Dimensions';
 
 const ButtonComponent = ({
