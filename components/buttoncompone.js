@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
-import { Button, FAB, TouchableRipple } from 'react-native-paper';
-import { Colors } from '../assets/constants/Colors';
-import { WIDTH } from '../assets/constants/Dimensions';
+import {Button, FAB, TouchableRipple} from 'react-native-paper';
+import {Colors} from '../assets/constants/Colors';
+import {WIDTH} from '../assets/constants/Dimensions';
+import {Icon} from 'react-native-vector-icons/AntDesign';
+import LinearGradient from 'react-native-linear-gradient';
+import Assets from '../assets';
 
 const ButtonComponent = ({
-  icon,
   buttonColor,
   textColor,
   onPress,
@@ -13,63 +15,98 @@ const ButtonComponent = ({
   height,
   width,
   disabled,
-
+  shadow,
+  paddingHorizontal,
+  button1,
+  button2,
   circleIcon,
+  btntxt,
+  widthIcon,
+  SvgICon,
+  icon1,
+  icon,
 }) => {
   return (
-    <TouchableRipple
-      disabled={disabled}
-      onPress={onPress}
-      style={[
-        styles.container,
-        { height: height, width: width, backgroundColor: buttonColor },
-      ]}>
-      <View
-        style={{
-          width: '100%',
-          height: '100%',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          paddingHorizontal: 15,
-        }}>
-        <Text
-          style={{
-            color: textColor,
-            fontSize: 16,
-            fontFamily: 'Bahnschrift',
-            fontWeight: 400,
-            textAlign: 'center',
-            paddingHorizontal: 20,
-          }}>
-          {buttonText}
-        </Text>
+    <>
+      {button1 && (
+        <TouchableRipple
+          disabled={disabled}
+          onPress={onPress}
+          style={[
+            styles.container,
+            {height: height, width: width, backgroundColor: buttonColor},
+          ]}>
+          <View
+            style={{
+              width: '100%',
+              height: '100%',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: icon ? 'space-between' : 'center',
+              paddingHorizontal: 15,
+            }}>
+            <Text
+              style={{
+                color: textColor,
 
-        {circleIcon && (
-
-
-          <View style={styles.container}>
-
-            <FAB
-              style={[
-                styles.fab,
-                {
-                  height: WIDTH < 375 ? 30 : 35,
-                  width: WIDTH < 375 ? 30 : 35,
-                },
-              ]}
-              size="small"
-              Icon="arrow-left"
-              color={Colors.secondary}
-              onPress={onPress} />
-
-
+                fontSize: 16,
+                fontFamily: 'Bahnschrift',
+                fontWeight: 400,
+              }}>
+              {buttonText}
+            </Text>
+            {SvgICon && (
+              <View style={{paddingHorizontal: paddingHorizontal}}>
+                <View
+                  style={{
+                    backgroundColor: '#C00006',
+                    borderRadius: 100,
+                    shadowOffset: {
+                      width: 0,
+                      height: 7,
+                    },
+                    shadowOpacity: 0.43,
+                    shadowRadius: 9.51,
+                    elevation: 15,
+                  }}>
+                  <Image source={Assets.icon.play} />
+                </View>
+              </View>
+            )}
           </View>
+        </TouchableRipple>
+      )}
+      {button2 && (
+        <TouchableOpacity
+          onPress={onPress}
+          style={{
+            // width: width,
+            // shadowColor: shadow,
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.58,
+            shadowRadius: 16.0,
 
-
-        )}
-      </View>
-    </TouchableRipple>
+            elevation: 24,
+          }}>
+          <LinearGradient
+            colors={['#1E0203', '#C00006']}
+            style={[styles.btn1, {width: width, shadowColor: shadow}]}>
+            <Text
+              style={{
+                fontWeight: '400',
+                color: '#fff',
+                fontSize: 18,
+                fontFamily: 'BrandonGrotesque-Regular',
+              }}>
+              {buttonText}
+            </Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      )}
+    </>
   );
 };
 
@@ -98,8 +135,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 50
-
+    borderRadius: 50,
   },
   fab: {
     height: 35,
@@ -109,15 +145,51 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'red',
     shadowColor: Colors.secondary,
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 7,
-    // },
-    // shadowOpacity: 0.43,
-    // shadowRadius: 9.51,
-    // elevation: 15,
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.43,
+    shadowRadius: 9.51,
+    elevation: 15,
   },
+  btn1: {
+    shadowOffset: {
+      width: 50,
+      height: 52,
+    },
+    shadowColor: 'red',
+    shadowOpacity: 20.58,
+    shadowRadius: 16.0,
+    elevation: 24,
 
+    marginVertical: 15,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 55,
+    // elevation: 10,
+    // shadowColor: '#aaaa',
+    borderRadius: 30,
+  },
+  RedICon: {
+    shadowOffset: {
+      width: 50,
+      height: 52,
+    },
+    shadowColor: 'red',
+    shadowOpacity: 20.58,
+    shadowRadius: 16.0,
+    elevation: 24,
+
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 55,
+    // elevation: 10,
+    // shadowColor: '#aaaa',
+    borderRadius: 100,
+  },
 });
 
 {

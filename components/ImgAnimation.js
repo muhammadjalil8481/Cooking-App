@@ -1,8 +1,8 @@
-import { StyleSheet, Text, Image, View, Easing, Animated } from 'react-native';
-import React, { useState, useEffect } from 'react';
-import { WIDTH } from '../assets/constants/Dimensions';
+import {StyleSheet, Text, Image, View, Easing, Animated} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {WIDTH} from '../assets/constants/Dimensions';
 
-const ImgAnimation = ({ Food1, Food2 }) => {
+const ImgAnimation = ({Food1, Food2}) => {
   let rotateValueHolder = new Animated.Value(0);
 
   const startImageRotateFunction = () => {
@@ -16,25 +16,38 @@ const ImgAnimation = ({ Food1, Food2 }) => {
   };
 
   const RotateData = rotateValueHolder.interpolate({
-    inputRange: [0, 1],
+    inputRange: [1, 1],
     outputRange: ['0deg', '360deg'],
   });
-
-  const [currentSlide, setCurrentSlide] = useState(false);
-  const position = new Animated.ValueXY({ x: 0, y: 0 });
-
+  const position = new Animated.ValueXY({x: 0, y: 0});
+  const position1 = new Animated.ValueXY({x: 0, y: 0});
   const [animation] = useState(new Animated.Value(0));
 
   useEffect(() => {
     Animated.spring(position, {
-      toValue: -250,
+      toValue: 250,
       duration: 3000,
       easing: Easing.circle, // Easing is an additional import from react-native
       useNativeDriver: true,
     }).start();
 
     Animated.timing(animation, {
-      toValue: { x: 200, y: 200 },
+      toValue: {x: 200, y: 200},
+      duration: 3000,
+      easing: Easing.circle, // Easing is an additional import from react-native
+      useNativeDriver: true,
+    }).start();
+    console.log(animation.ValueXY);
+  }, []);
+  useEffect(() => {
+    Animated.spring(position1, {
+      toValue: -250,
+      duration: 3000,
+      easing: Easing.circle, // Easing is an additional import from react-native
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(animation, {
+      toValue: {x: 200, y: 200},
       duration: 3000,
       easing: Easing.circle, // Easing is an additional import from react-native
       useNativeDriver: true,
@@ -51,24 +64,22 @@ const ImgAnimation = ({ Food1, Food2 }) => {
   }, []);
 
   const rotate = animation.interpolate({
-    inputRange: [0, 1],
+    inputRange: [1, 1],
     outputRange: ['360deg', '0deg'],
   });
-
   const scale = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 2],
+    inputRange: [1, 1],
+    outputRange: [2, 2],
   });
-
   const animatedStyle = {
-    transform: [{ rotate }, { scale }],
+    transform: [{rotate}, {scaleY: 1}],
   };
 
   useEffect(() => {
     startImageRotateFunction();
     setTimeout(() => {
       // navigation.replace('login');
-    }, 1000);
+    }, 3000);
   }, []);
 
   return (
@@ -84,12 +95,13 @@ const ImgAnimation = ({ Food1, Food2 }) => {
         <Animated.View
           style={{
             paddingLeft: 30,
-            // paddingLeft: 30, transform: [{ translateY: position.y }]
+            paddingLeft: 30,
+            transform: [{translateY: position.y}],
           }}>
           <Animated.Image
             source={Food1}
             resizeMode="contain"
-            style={[{ width: '100%' }, animatedStyle]}
+            style={[{width: '100%'}, animatedStyle]}
           />
         </Animated.View>
       </View>
@@ -102,23 +114,18 @@ const ImgAnimation = ({ Food1, Food2 }) => {
           top: 200,
         }}>
         <Animated.View
-        // style={{ paddingLeft: 30, transform: [{ translateY: position.y }] }}
-        >
+          style={{paddingLeft: 30, transform: [{translateY: position1.y}]}}>
           <Animated.Image
             source={Food2}
             resizeMode="contain"
-            style={[{ width: '100%' }, animatedStyle]}
+            style={[{width: '100%'}, animatedStyle]}
           />
         </Animated.View>
       </View>
-
     </>
   );
 };
 
 export default ImgAnimation;
 
-const styles = StyleSheet.create({
-
-
-});
+const styles = StyleSheet.create({});

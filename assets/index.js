@@ -18,6 +18,9 @@ const Assets = {
   icon: {
     play: require('../assets/images/play1.png'),
     playR: require('../assets/images/PlayR.png'),
+    google: require('./images/google.png'),
+    facebook: require('./images/facebook.png'),
+    twitter: require('./images/twitter.png'),
   },
 };
 

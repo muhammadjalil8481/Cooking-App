@@ -7,14 +7,14 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Assets from '../assets';
-import { Colors } from '../assets/constants/Colors';
+import {Colors} from '../assets/constants/Colors';
 import ButtonComponent from '../components/buttoncompone';
 import deviceInfoModule from 'react-native-device-info';
-import { FAB } from 'react-native-paper';
+import {FAB} from 'react-native-paper';
 import Orientation from 'react-native-orientation-locker';
-import { Fonts } from '../assets/constants/fonts';
+import {Fonts} from '../assets/constants/fonts';
 // import Lottie from 'lottie-react-native';
 import Animated, {
   useSharedValue,
@@ -24,13 +24,13 @@ import Animated, {
   useDerivedValue,
   interpolateColor,
 } from 'react-native-reanimated';
-import { WIDTH, HEIGHT } from '../assets/constants/Dimensions';
+import {WIDTH, HEIGHT} from '../assets/constants/Dimensions';
 // import { Fonts } from '../assets/fonts/fonts';
 import ImgAnimation from '../components/ImgAnimation';
 
 let hasNotch = deviceInfoModule.hasNotch();
 
-const Onboarding = ({ navigation }) => {
+const Onboarding = ({navigation}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const ref = useRef();
 
@@ -114,7 +114,7 @@ const Onboarding = ({ navigation }) => {
     }
     if (nextSlideIndex != slides.length) {
       const offset = nextSlideIndex * WIDTH;
-      ref?.current.scrollToOffset({ offset });
+      ref?.current.scrollToOffset({offset});
       setCurrentSlideIndex(currentSlideIndex + 1);
     }
   };
@@ -125,7 +125,7 @@ const Onboarding = ({ navigation }) => {
     }
     if (nextSlideIndex != slides.length) {
       const offset = nextSlideIndex * WIDTH;
-      ref?.current.scrollToOffset({ offset });
+      ref?.current.scrollToOffset({offset});
       setCurrentSlideIndex(currentSlideIndex - 1);
     }
   };
@@ -145,7 +145,7 @@ const Onboarding = ({ navigation }) => {
         onScrollEndDrag={updateCurrentSlideIndex}
         showsHorizontalScrollIndicator={false}
         bounces={false}
-        renderItem={({ item }) => <Slide item={item} />}
+        renderItem={({item}) => <Slide item={item} />}
       />
       <Indicators
         currentSlideIndex={currentSlideIndex}
@@ -164,7 +164,7 @@ const Onboarding = ({ navigation }) => {
 
 export default Onboarding;
 
-const Slide = ({ item }) => {
+const Slide = ({item}) => {
   return (
     <View
       style={{
@@ -217,7 +217,6 @@ const Slide = ({ item }) => {
                     // top: -140,
                   }
                 }>
-
                 <ImgAnimation Food1={item.Food1} />
                 <ImgAnimation Food2={item.Food2} />
                 {/* <Image source={item.Food1} resizeMode="contain" /> */}
@@ -249,7 +248,7 @@ const Slide = ({ item }) => {
               <Text
                 style={[
                   styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55 },
+                  {color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55},
                 ]}
                 numberOfLines={2}
                 adjustsFontSizeToFit>
@@ -261,7 +260,7 @@ const Slide = ({ item }) => {
               <Text
                 style={[
                   styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55 },
+                  {color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55},
                 ]}
                 numberOfLines={2}
                 adjustsFontSizeToFit>
@@ -273,7 +272,7 @@ const Slide = ({ item }) => {
               <Text
                 style={[
                   styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55 },
+                  {color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55},
                 ]}
                 numberOfLines={2}
                 adjustsFontSizeToFit>
@@ -285,7 +284,7 @@ const Slide = ({ item }) => {
               <Text
                 style={[
                   styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55 },
+                  {color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55},
                 ]}
                 numberOfLines={2}
                 adjustsFontSizeToFit>
@@ -379,20 +378,23 @@ const Indicators = ({
             onPress={() => goToNextSlide()}
             style={[
               styles.fab,
-              { height: WIDTH < 375 ? 40 : 55, width: WIDTH < 375 ? 40 : 55 },
+              {height: WIDTH < 375 ? 40 : 55, width: WIDTH < 375 ? 40 : 55},
             ]}>
             <Image source={Assets.icon.playR} />
           </TouchableOpacity>
         </Animated.View>
         {currentSlideIndex == 0 ? (
           <ButtonComponent
-            circleIcon
-            buttonText="Next"
+            button1
+            SvgICon
+            buttonText="Lets Start"
+            paddingHorizontal={WIDTH < 375 ? 5 : 15}
             icon="arrow-right"
             buttonColor={Colors.primary}
             textColor={Colors.secondary}
             onPress={() => goToNextSlide()}
-            height={WIDTH < 375 ? 40 : 55}
+            widthIcon={WIDTH < 375 ? 40 : 57}
+            height={WIDTH < 375 ? 40 : 57}
             width={WIDTH < 375 ? 110 : 150}
             viewOnRight={true}
           />
