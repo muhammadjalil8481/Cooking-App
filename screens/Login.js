@@ -12,9 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../assets/constants/Colors';
 import Assets from '../assets';
 import { HEIGHT, WIDTH } from '../assets/constants/Dimensions';
-
 import Icon from 'react-native-vector-icons/Feather';
-
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Input from '../components/inputs';
 import ButtonComponent from '../components/buttoncompone';

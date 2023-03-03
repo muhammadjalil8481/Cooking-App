@@ -1,4 +1,5 @@
 export const Colors = {
+  BackgroundColorW: '#E4E3E3',
   primary: '#C8C6C6',
   secondary: '#FFFFFF',
   Red: '#C00006',
@@ -7,5 +8,6 @@ export const Colors = {
   cards: {
     lightBlue: '#ECF9FF',
     GreyText: '#a1a1a1',
+    BlueText: '#1492E6',
   },
 };
