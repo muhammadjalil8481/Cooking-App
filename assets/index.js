@@ -4,6 +4,7 @@ const Assets = {
     BackGroundBG: require('../assets/images/BAckGrounBG.png'),
     backgroundImag2: require('../assets/images/BAckground1.png'),
     girlsPic1: require('../assets/images/girlpic!.png'),
+    profile: require('../assets/images/profile.png'),
   },
 
   FoodItems: {

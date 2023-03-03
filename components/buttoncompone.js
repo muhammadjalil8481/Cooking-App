@@ -1,9 +1,9 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
-import {Button, FAB, TouchableRipple} from 'react-native-paper';
-import {Colors} from '../assets/constants/Colors';
-import {WIDTH} from '../assets/constants/Dimensions';
-import {Icon} from 'react-native-vector-icons/AntDesign';
+import { Button, FAB, TouchableRipple } from 'react-native-paper';
+import { Colors } from '../assets/constants/Colors';
+import { WIDTH } from '../assets/constants/Dimensions';
+import { Icon } from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 import Assets from '../assets';
 
@@ -25,6 +25,7 @@ const ButtonComponent = ({
   SvgICon,
   icon1,
   icon,
+  button3
 }) => {
   return (
     <>
@@ -34,7 +35,7 @@ const ButtonComponent = ({
           onPress={onPress}
           style={[
             styles.container,
-            {height: height, width: width, backgroundColor: buttonColor},
+            { height: height, width: width, backgroundColor: buttonColor },
           ]}>
           <View
             style={{
@@ -56,7 +57,7 @@ const ButtonComponent = ({
               {buttonText}
             </Text>
             {SvgICon && (
-              <View style={{paddingHorizontal: paddingHorizontal}}>
+              <View style={{ paddingHorizontal: paddingHorizontal }}>
                 <View
                   style={{
                     backgroundColor: '#C00006',
@@ -92,8 +93,38 @@ const ButtonComponent = ({
             elevation: 24,
           }}>
           <LinearGradient
-            colors={['#1E0203', '#C00006']}
-            style={[styles.btn1, {width: width, shadowColor: shadow}]}>
+            colors={['#C00006', '#1E020A']}
+            style={[styles.btn1, { width: width, shadowColor: shadow }]}>
+            <Text
+              style={{
+                fontWeight: '400',
+                color: '#fff',
+                fontSize: 18,
+                fontFamily: 'BrandonGrotesque-Regular',
+              }}>
+              {buttonText}
+            </Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      )}
+      {button3 && (
+        <TouchableOpacity
+          onPress={onPress}
+          style={{
+            // width: width,
+            // shadowColor: shadow,
+            shadowOffset: {
+              width: 0,
+              height: 12,
+            },
+            shadowOpacity: 0.58,
+            shadowRadius: 16.0,
+
+            elevation: 24,
+          }}>
+          <LinearGradient
+            colors={['#AAA', '#AAAA']}
+            style={[styles.btn1, { width: width, shadowColor: shadow }]}>
             <Text
               style={{
                 fontWeight: '400',
