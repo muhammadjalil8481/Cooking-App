@@ -1,20 +1,20 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-import {Avatar, FAB} from 'react-native-paper';
+import { Avatar, FAB } from 'react-native-paper';
 import Assets from '../assets';
-import {Icon} from 'react-native-vector-icons/Icon';
-import {ArrowIcon, LockIcon} from '../assets/Svg/SocialSvg';
+import { ArrowIcon, LockIcon } from '../assets/Svg/SocialSvg';
+import { Colors } from '../assets/constants/Colors';
 
-const Header = ({homeHeader, header, onPress, headText}) => {
+const Header = ({ homeHeader, header, onPress, headText, onPress1, blueBtn }) => {
   return (
     <View>
       {homeHeader && (
         <View style={styles.Container}>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row' }}>
             <Avatar.Image size={40} source={Assets.backgroundImages.profile} />
             <Text style={styles.text}>Good Morning Alexa</Text>
           </View>
-          <View style={{marginTop: 25, paddingHorizontal: 5}}>
+          <View style={{ marginTop: 25, paddingHorizontal: 5 }}>
             <TouchableOpacity onPress={onPress} style={styles.button}>
               <LockIcon />
             </TouchableOpacity>
@@ -22,14 +22,22 @@ const Header = ({homeHeader, header, onPress, headText}) => {
         </View>
       )}
       {header && (
-        <View style={[styles.Container]}>
-          <View style={{paddingHorizontal: 5}}>
+        <View style={[styles.Container,]}>
+          <View style={{}}>
             <TouchableOpacity style={styles.button1} onPress={onPress}>
               {/* <ArrowIcon /> */}
             </TouchableOpacity>
-            <View style={{alignSelf: 'center', paddingBottom: 25}}>
+            <View style={{ alignSelf: 'center', paddingBottom: 25 }}>
               <Text style={styles.text1}>{headText}</Text>
             </View>
+            {blueBtn && (
+              <>
+                <TouchableOpacity style={[styles.button2, { backgroundColor: '#1492E6', }]} onPress={onPress1}>
+                  <Text style={{ color: '#ffff' }}>Save Meal</Text>
+                </TouchableOpacity>
+              </>
+            )}
+
           </View>
         </View>
       )}
@@ -52,8 +60,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 16,
     right: 1,
-
-    backgroundColor: '#fff',
+    backgroundColor: '#EEEBEB',
     borderRadius: 10,
     width: 50,
     height: 50,
@@ -73,11 +80,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     elevation: 15,
   },
+  button2: {
+    position: 'absolute',
+    bottom: 16,
+    right: 1,
+    backgroundColor: '#fff',
+    borderRadius: 17,
+    width: 100,
+    height: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 15,
+  },
   text: {
     paddingTop: 10,
     paddingLeft: 10,
+    color: '#1E0203'
   },
-  text1: {paddingTop: 10, paddingLeft: 10, fontSize: 28, color: '#707070'},
+  text1: { paddingTop: 10, paddingLeft: 10, fontSize: 28, color: Colors.headText },
 });
 
 export default Header;

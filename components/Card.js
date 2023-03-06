@@ -8,116 +8,123 @@ import {
   FlatList,
   ImageBackground,
 } from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Colors} from '../assets/constants/Colors';
+import React, { useState, useRef, useEffect } from 'react';
 import Assets from '../assets';
-import {HEIGHT, WIDTH} from '../assets/constants/Dimensions';
-import Icon from 'react-native-vector-icons/Feather';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import Input from '../components/inputs';
-import ButtonComponent from '../components/buttoncompone';
-import {FAB} from 'react-native-paper';
-import ImgAnimation from '../components/ImgAnimation';
+import { HEIGHT, WIDTH } from '../assets/constants/Dimensions';
 import LinearGradient from 'react-native-linear-gradient';
+import { Colors } from '../assets/constants/Colors';
 // import { Fonts } from '../assets/constants/Fonts';
 
-const Card = ({navigation}) => {
+const Card = ({ navigation }) => {
   const [rememberMe, setRememberMe] = useState(false);
   const [myListData, setMyListData] = useState([
-    {id: 1, title: '• 3 chicken breast'},
-    {id: 2, title: '• Salt'},
-    {id: 3, title: '• Pepper'},
-    {id: 4, title: '• Montreal roasted chicken'},
-    {id: 5, title: '• Dash of Peprika'},
-    {id: 6, title: '• 3 chicken breast'},
+    { id: 1, title: '• 3 chicken breast' },
+    { id: 2, title: '• Salt' },
+    { id: 3, title: '• Pepper' },
+    { id: 4, title: '• Montreal roasted chicken' },
+    { id: 5, title: '• Dash of Peprika' },
+    { id: 6, title: '• 3 chicken breast' },
+    { id: 7, title: '• 3 chicken breast' },
+    { id: 8, title: '• Salt' },
+    { id: 9, title: '• Pepper' },
+    { id: 10, title: '• Montreal roasted chicken' },
+    { id: 11, title: '• Dash of Peprika' },
+    { id: 12, title: '• 3 chicken breast' },
   ]);
 
-  const renderItem = ({item}) => (
+  const [myListData1, setMyListData1] = useState([
+    { id: 1, title: '• Add layer of season to raw chicken' },
+    { id: 2, title: '• Add layer of season to raw chicken' },
+    { id: 3, title: '• Place on hot stove stop pan with dash of olive oil at medium heat - 8 minutes' },
+    { id: 4, title: '• Montreal roasted chicken' },
+    { id: 5, title: '• Montreal roasted chicken' },
+    { id: 6, title: '• Flip to other side for additional 7 minutes' },
+    { id: 7, title: '• Flip to other side for additional 7 minutes' },
+
+  ]);
+  const renderItem = ({ item }) => (
     <View style={styles.item}>
-      <Text style={styles.title}>{item.title}</Text>
+      <Text numberOfLines={2} style={styles.title}>{item.title}</Text>
     </View>
+
+
   );
   return (
-    <LinearGradient
-      colors={['#FBF9F9', '#CCCBCB00']}
-      style={styles.contentContainer}>
-      <>
-        <Text
-          numberOfLines={4}
-          style={{
-            paddingVertical: 10,
-            fontSize: WIDTH < 375 ? 10 : 12,
-            color: '#707070',
-            //   fontFamily: Fonts.default,
-            fontWeight: '300',
-            lineHeight: WIDTH < 375 ? 13 : 16,
-          }}>
-          Add layer of season to raw chicken Place on hot stove stop pan with
-          dash of olive oil at medium heat - 8 minutes Flip to other side for
-          additional 7 minutes turn temperatur to Medium+ to get burn marks for
-          flavor
-        </Text>
-        <Text
-          numberOfLines={2}
-          style={{
-            marginTop: 15,
-            fontSize: WIDTH < 375 ? 14 : 16,
-            color: '#707070',
-            //   fontFamily: Fonts.default,
-            fontWeight: 'bold',
-            lineHeight: WIDTH < 375 ? 13 : 16,
-          }}>
-          Ingredients:
-        </Text>
-        <View style={styles.container}>
-          <FlatList
-            data={myListData}
-            renderItem={renderItem}
-            keyExtractor={item => item.id.toString()}
-          />
+
+    <View style={[styles.contentContainer,]}>
+      <LinearGradient
+        colors={['#FBF9F9', '#CCCB']}
+        style={{
+          backgroundColor: '#FBF9F9', borderRadius: 20,
+          padding: 5,
+          paddingTop: 15,
+          shadowOffset: {
+            width: 0,
+            height: 7,
+          },
+          shadowOpacity: 0.43,
+          shadowRadius: 9.51,
+          elevation: 15,
+
+
+        }}
+      >
+        <View style={{ paddingLeft: 10, paddingTop: 5 }}>
+          <Text
+            numberOfLines={4}
+            style={[styles.text1, {}]}>
+            Add layer of season to raw chicken Place on hot stove stop pan with
+            dash of olive oil at medium heat - 8 minutes Flip to other side for
+            additional 7 minutes turn temperatur to Medium+ to get burn marks for
+            flavor
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={[styles.text1, { fontSize: 16, fontWeight: 'bold', paddingTop: 15 }]}>
+            Ingredients:
+          </Text>
+          <View style={{ height: 120, width: 160 }}>
+            <FlatList
+              showsVerticalScrollIndicator={true}
+              showsHorizontalScrollIndicator={true}
+              data={myListData}
+              renderItem={renderItem}
+              keyExtractor={item => item.id.toString()}
+            />
+          </View>
+          <Text
+            numberOfLines={1}
+            style={[styles.text1, { fontSize: 16, fontWeight: 'bold', paddingTop: 15, paddingBottom: 15 }]}>
+            Story
+          </Text>
+          <View style={{ height: 120, width: 180, paddingTop: 5 }}>
+            <FlatList
+              showsVerticalScrollIndicator={true}
+              showsHorizontalScrollIndicator={true}
+              data={myListData1}
+              renderItem={renderItem}
+              keyExtractor={item => item.id.toString()}
+            />
+          </View>
         </View>
-        <Text
-          numberOfLines={2}
-          style={{
-            fontSize: WIDTH < 375 ? 10 : 12,
-            color: '#707070',
-            //   fontFamily: Fonts.default,
-            fontWeight: 'bold',
-            lineHeight: WIDTH < 375 ? 10 : 12,
-          }}>
-          Story
-        </Text>
-        <Text
-          numberOfLines={10}
-          style={{
-            paddingVertical: 10,
-            fontSize: WIDTH < 375 ? 10 : 12,
-            color: '#707070',
-            //   fontFamily: Fonts.default,
-            fontWeight: '300',
-            lineHeight: WIDTH < 375 ? 13 : 16,
-          }}>
-          Add layer of season to raw chicken Place on hot stove stop pan with
-          dash of olive oil at medium heat - 8 minutes {'\n'}Flip to other side
-          for additional 7 minutes turn temperatur to Medium+ to get burn marks
-          for flavor{'\n'}Add layer of season to raw chicken Place on hot stove
-          stop pan with dash of olive oil .
-        </Text>
-      </>
-    </LinearGradient>
+      </LinearGradient>
+    </View>
   );
 };
 export default Card;
 const styles = StyleSheet.create({
   contentContainer: {
-    paddingTop: 10,
+    marginTop: 15,
+    paddingVertical: 15,
+    paddingVertical: 5,
+    // margin: 5,
+    // paddingLeft: 15,
     alignSelf: 'center',
     backgroundColor: '#FFFF',
+    // paddingBottom: 15,
     borderRadius: 20,
-    paddingBottom: 15,
-    width: WIDTH <= 375 ? 315 : 338,
-    paddingHorizontal: 25,
+    // width: WIDTH <= 375 ? 338 : 356,
+    paddingHorizontal: 5,
     shadowOffset: {
       width: 0,
       height: 7,
@@ -126,7 +133,6 @@ const styles = StyleSheet.create({
     shadowRadius: 9.51,
     elevation: 15,
   },
-
   text: {
     color: '#fff',
     fontSize: 17,
@@ -136,13 +142,14 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   content: {
+    paddingTop: 15,
+    paddingHorizontal: 15,
     // backgroundColor: 'green',
   },
 
-  item: {
+  title: {
     fontSize: 12,
-    height: 34,
-
+    height: 30,
     fontSize: WIDTH < 375 ? 10 : 12,
     color: '#707070',
     //   fontFamily: Fonts.default,
@@ -151,12 +158,20 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: 22,
+
+  },
+  text1: {
+    fontSize: WIDTH < 375 ? 10 : 12,
+    color: '#707070',
+    //   fontFamily: Fonts.default,
+    fontWeight: 'bold',
+    lineHeight: WIDTH < 375 ? 10 : 12,
+    paddingVertical: 5,
   },
   touchable: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 5,
+    // padding: 5,
   },
 });

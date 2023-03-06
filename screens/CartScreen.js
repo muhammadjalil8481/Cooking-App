@@ -1,53 +1,68 @@
-import {StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import CardCompoLG from '../components/cardCompoLg';
 import Assets from '../assets';
 import ButtonComponent from '../components/buttoncompone';
-import {WIDTH} from '../assets/constants/Dimensions';
-import {Colors} from '../assets/constants/Colors';
+import { WIDTH } from '../assets/constants/Dimensions';
+import { Colors } from '../assets/constants/Colors';
+import Mymodal from '../components/Mymodal';
 
-const CartScreen = ({navigation}) => {
+const CartScreen = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [innerPopupVisible, setInnerPopupVisible] = useState(false);
+  const toggleInnerPopup = () => {
+    setInnerPopupVisible(!innerPopupVisible);
+  };
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView
-        bounces={false}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
-        <View
-          style={{
-            flex: 1,
-            paddingHorizontal: 25,
-            marginTop: 'auto',
-            paddingTop: 15,
-          }}>
-          <Header
-            header
-            headText={'Cart'}
-            onPress={() => navigation.goBack()}
-          />
-          <View style={{paddingBottom: 15}}>
-            <CardCompoLG
-              bgColor={'#C00006'}
-              FoodImage={Assets.FoodItems.FoodItem1}
-              ButtonComponent={
-                <ButtonComponent
-                  button2
-                  buttonText="View Full"
-                  buttonColor={'red'}
-                  //   textColor={Colors.secondary}
-                  onPress={() => navigation.navigate('CartScreen')}
-                  height={WIDTH <= 375 ? 40 : 55}
-                  width={WIDTH <= 375 ? 125 : 175}
-                />
-              }
+    <>
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          bounces={false}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <View
+            style={{
+              flex: 1,
+              paddingHorizontal: 25,
+              marginTop: 'auto',
+              paddingTop: 15,
+            }}>
+            <Header
+              header
+              headText={'Cart'}
+              onPress={() => navigation.goBack()}
             />
+            <View style={{ paddingBottom: 15 }}>
+              <CardCompoLG
+                onPress={() => setModalVisible(true)}
+                removebtn={true}
+                removeText={'Remove'}
+                bgColor={'#C00006'}
+                FoodImage={Assets.FoodItems.FoodItem1}
+                ButtonComponent={
+                  <ButtonComponent
+                    button2
+                    buttonText="View Full"
+                    buttonColor={'red'}
+                    //   textColor={Colors.secondary}
+                    onPress={() => navigation.navigate('MealDetails')}
+                    height={WIDTH <= 375 ? 40 : 55}
+                    width={WIDTH <= 375 ? 125 : 175}
+                  />
+                }
+              />
+            </View>
           </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+      <Mymodal modaltext1={'Removed Successfully'} modalVisible={modalVisible} setModalVisible={setModalVisible}
+        innerButton={() => navigation.navigate('HomeScreen')} />
+    </>
   );
 };
+
 
 export default CartScreen;
 

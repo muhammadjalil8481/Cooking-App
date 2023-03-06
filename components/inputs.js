@@ -1,12 +1,12 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
-import {Menu, TextInput, TouchableRipple} from 'react-native-paper';
-import {Colors} from '../assets/constants/Colors';
+import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Menu, TextInput, TouchableRipple } from 'react-native-paper';
+import { Colors } from '../assets/constants/Colors';
 
 import Icon from 'react-native-vector-icons/Feather';
-import {WIDTH} from '../assets/constants/Dimensions';
-import {colors} from 'react-native-swiper-flatlist/src/themes';
-const Input = ({text, setText, placeholder, formKey, gender}) => {
+import { WIDTH } from '../assets/constants/Dimensions';
+import { colors } from 'react-native-swiper-flatlist/src/themes';
+const Input = ({ text, setText, placeholder, formKey, gender }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const onChangeHandler = (value, name) => {
     // how to handle for each state field
@@ -32,7 +32,7 @@ const Input = ({text, setText, placeholder, formKey, gender}) => {
           underlineColor="transparent"
           selectionColor="#000"
           placeholderTextColor={Colors.Red}
-          theme={{roundness: 30}}
+          theme={{ roundness: 30 }}
           style={{
             // fontFamily: Fonts.default,
             fontWeight: '400',
@@ -59,7 +59,7 @@ const Input = ({text, setText, placeholder, formKey, gender}) => {
 
 export default Input;
 
-const GenderMenu = ({value, onChangeHandler, formKey}) => {
+const GenderMenu = ({ value, onChangeHandler, formKey }) => {
   const [visible, setVisible] = useState(false);
 
   const openMenu = () => setVisible(true);
@@ -100,7 +100,7 @@ const GenderMenu = ({value, onChangeHandler, formKey}) => {
               name="chevron-down"
               size={20}
               color={value.length < 1 ? Colors.primary : Colors.tertiary}
-              style={{marginLeft: 5}}
+              style={{ marginLeft: 5 }}
             />
           </View>
         </TouchableRipple>

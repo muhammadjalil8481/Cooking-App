@@ -8,27 +8,26 @@ import {
 } from 'react-native';
 
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../components/Header';
 import SearchbarCompo from '../components/searchbar';
 import ButtonComponent from '../components/buttoncompone';
-import {WIDTH} from '../assets/constants/Dimensions';
+import { WIDTH } from '../assets/constants/Dimensions';
 import Assets from '../assets';
-import {MenuIcon} from '../assets/Svg/SocialSvg';
+import { MenuIcon } from '../assets/Svg/SocialSvg';
 import CardCompoLG from '../components/cardCompoLg';
-import {Colors} from '../assets/constants/Colors';
-const HomeScreen = ({navigation}) => {
+import { Colors } from '../assets/constants/Colors';
+const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         bounces={false}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
-        <View style={{paddingHorizontal: 25}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={{ paddingHorizontal: 15 }}>
           <View
             style={{
               flex: 1,
-              paddingHorizontal: 5,
               marginTop: 'auto',
               paddingTop: 25,
               paddingBottom: 15,
@@ -37,20 +36,22 @@ const HomeScreen = ({navigation}) => {
               homeHeader
               onPress={() => navigation.navigate('CartScreen')}
             />
-            <SearchbarCompo />
-            <View style={{paddingTop: 5, paddingBottom: 15}} />
+            <View style={{}}>
+              <SearchbarCompo />
+            </View>
+            <View style={{ paddingTop: 5, paddingBottom: 15 }} />
             <ButtonComponent
               button3
               buttonText="Add Meal +"
-              paddingHorizontal={WIDTH < 375 ? 5 : 25}
+              paddingHorizontal={WIDTH < 375 ? 5 : 15}
               icon="arrow-right"
-              onPress={() => goToNextSlide()}
+              onPress={() => navigation.navigate('AddMealScreen')}
               widthIcon={WIDTH < 375 ? 40 : 57}
               height={WIDTH < 375 ? 40 : 57}
-              width={WIDTH < 375 ? 110 : 338}
+              width={WIDTH < 375 ? 110 : 375}
             />
             <View style={styles.row}>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{ flexDirection: 'row' }}>
                 <Text style={styles.Text}>My Meal</Text>
                 <View
                   style={{
@@ -73,6 +74,7 @@ const HomeScreen = ({navigation}) => {
               </View>
             </View>
             <CardCompoLG
+              checkButton
               bgColor={'#C00006'}
               FoodImage={Assets.FoodItems.FoodItem1}
               ButtonComponent={
@@ -87,7 +89,9 @@ const HomeScreen = ({navigation}) => {
                 />
               }
             />
+            <View style={{ padding: 5 }} />
             <CardCompoLG
+              checkButton
               bgColor={'#00A0C0'}
               FoodImage={Assets.FoodItems.FoodItem1}
               ButtonComponent={
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 16,
     right: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#EEEBEB',
     borderRadius: 10,
     width: 50,
     height: 50,
