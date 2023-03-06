@@ -65,14 +65,12 @@ const Card = ({ navigation }) => {
           shadowOpacity: 0.43,
           shadowRadius: 9.51,
           elevation: 15,
-
-
         }}
       >
         <View style={{ paddingLeft: 10, paddingTop: 5 }}>
           <Text
             numberOfLines={4}
-            style={[styles.text1, {}]}>
+            style={[styles.text1, { fontFamily: 'NoirPro-Light', }]}>
             Add layer of season to raw chicken Place on hot stove stop pan with
             dash of olive oil at medium heat - 8 minutes Flip to other side for
             additional 7 minutes turn temperatur to Medium+ to get burn marks for
@@ -149,11 +147,10 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 12,
-    height: 30,
+    height: 34,
     fontSize: WIDTH < 375 ? 10 : 12,
     color: '#707070',
-    //   fontFamily: Fonts.default,
-    fontWeight: 'bold',
+    fontFamily: 'NoirPro-Light',
     lineHeight: WIDTH < 375 ? 13 : 16,
   },
   container: {
@@ -163,8 +160,9 @@ const styles = StyleSheet.create({
   text1: {
     fontSize: WIDTH < 375 ? 10 : 12,
     color: '#707070',
+    fontFamily: 'NoirPro-Light',
     //   fontFamily: Fonts.default,
-    fontWeight: 'bold',
+
     lineHeight: WIDTH < 375 ? 10 : 12,
     paddingVertical: 5,
   },

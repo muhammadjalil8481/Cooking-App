@@ -414,8 +414,7 @@ const styles = StyleSheet.create({
     paddingTop: HEIGHT / 12.5,
   },
   title: {
-    // fontFamily: Fonts.default,
-    fontFamily: Fonts.default,
+    fontFamily: 'Crispy Seafood',
     fontSize: 34.25,
     fontWeight: 500,
     color: '#1E0203',

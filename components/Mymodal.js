@@ -69,7 +69,9 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
-        paddingHorizontal: 30
+        paddingHorizontal: 30,
+        fontFamily: 'NoirPro-SemiBold'
+
     },
     modalText: {
         paddingBottom: 15,

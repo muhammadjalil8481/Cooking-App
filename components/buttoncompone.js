@@ -6,6 +6,7 @@ import { WIDTH } from '../assets/constants/Dimensions';
 import { Icon } from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 import Assets from '../assets';
+import { PlusSvg } from '../assets/Svg/SocialSvg';
 
 const ButtonComponent = ({
   buttonColor,
@@ -98,10 +99,9 @@ const ButtonComponent = ({
             style={[styles.btn1, { width: width, shadowColor: shadow }]}>
             <Text
               style={{
-                fontWeight: '400',
                 color: '#fff',
-                fontSize: 18,
-                fontFamily: 'BrandonGrotesque-Regular',
+                fontFamily: 'NoirPro-Medium',
+                fontSize: 14
               }}>
               {buttonText}
             </Text>
@@ -129,11 +129,22 @@ const ButtonComponent = ({
               style={{
                 fontWeight: '400',
                 color: '#1E0203',
-                fontSize: 18,
-                fontFamily: 'BrandonGrotesque-Regular',
+                fontSize: 14,
+                fontFamily: 'NoirPro-Regular',
+                padding: 5
+
               }}>
               {buttonText}
+              {icon && (
+                <>
+                  <View style={{}}>
+                    <PlusSvg />
+                  </View>
+
+                </>
+              )}
             </Text>
+
           </LinearGradient>
         </TouchableOpacity>
       )}

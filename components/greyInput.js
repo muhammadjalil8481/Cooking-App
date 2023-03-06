@@ -98,15 +98,10 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: WIDTH <= 375 ? 10 : 12,
         // fontFamily: Fonts.default,
-
         fontWeight: '700',
-
         color: '#1E0203',
-
     },
-
     loginTextContainer: {
-
         // flexDirection: 'row',
         // alignItems: 'center',
         // alignSelf: 'center',

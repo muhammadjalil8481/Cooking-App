@@ -40,13 +40,13 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
           },
         ]}>
         <View style={{ alignSelf: 'flex-start', width: '70%' }}>
-          <Text style={[styles.text, { textAlign: 'left' }]}>
+          <Text style={[styles.text, { textAlign: 'left', fontFamily: 'NoirPro-Light' }]}>
             Green
-            <Text style={{ fontWeight: 'bold', fontSize: 20 }}>  Salad</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'NoirPro-Bold' }}>  Salad</Text>
           </Text>
           <Text
             numberOfLines={2}
-            style={[styles.text1, { color: Colors.primary, fontWeight: '300' }]}>
+            style={[styles.text1, { color: Colors.primary, fontWeight: '300', fontFamily: 'NoirPro-Regular' }]}>
             Lorem ipsum dolor sit amet ntetur {'\n'}sadipscing elitr sed diam.
           </Text>
         </View>
@@ -67,7 +67,7 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
       <View style={styles.content}>
         <Text
           numberOfLines={2}
-          style={[styles.text1]}>
+          style={[styles.text1, { fontFamily: 'NoirPro-SemiBold' }]}>
           Ingredients:
         </Text>
         <View style={styles.container}>
@@ -79,12 +79,12 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
         </View>
         <Text
           numberOfLines={2}
-          style={[styles.text1, { fontWeight: 'bold' }]}>
+          style={[styles.text1, { fontWeight: 'bold', fontFamily: 'NoirPro-SemiBold' }]}>
           Story
         </Text>
         <Text
           numberOfLines={2}
-          style={styles.text1}>
+          style={[styles.text1, { fontFamily: 'NoirPro-Light', }]}>
           Add layer of season to raw chicken Place on hot stove stop pan with
           dash of olive oil at medium heat - 8 minutes Flip to other side for
           additional 7 minutes turn temperatur to Medium+ to get burn marks for
@@ -125,7 +125,7 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
           removebtn && (
             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={onPress}>
               <CrossIcon />
-              <Text style={{ color: Colors.Red, paddingLeft: 5 }}>{removeText}</Text>
+              <Text style={{ color: Colors.Red, paddingLeft: 5, fontFamily: 'NoirPro-Regular' }}>{removeText}</Text>
             </TouchableOpacity>
           )
         }
@@ -168,6 +168,7 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 17,
+
   },
   textpara: {
     color: '#fff',
@@ -184,8 +185,7 @@ const styles = StyleSheet.create({
     height: 24,
     fontSize: WIDTH < 375 ? 10 : 12,
     color: '#707070',
-    //   fontFamily: Fonts.default,
-    fontWeight: 'bold',
+    fontFamily: 'NoirPro-Light',
     lineHeight: WIDTH < 375 ? 13 : 16,
   },
   container: {
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     fontSize: WIDTH < 375 ? 10 : 12,
     color: '#707070',
     //   fontFamily: Fonts.default,
-    fontWeight: 'bold',
+
     lineHeight: WIDTH < 375 ? 10 : 12,
     paddingVertical: 5,
   },

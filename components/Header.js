@@ -12,7 +12,7 @@ const Header = ({ homeHeader, header, onPress, headText, onPress1, blueBtn }) =>
         <View style={styles.Container}>
           <View style={{ flexDirection: 'row' }}>
             <Avatar.Image size={40} source={Assets.backgroundImages.profile} />
-            <Text style={styles.text}>Good Morning Alexa</Text>
+            <Text style={[styles.text, { fontFamily: 'Bouquet Typeface' }]}>Good Morning Alexa</Text>
           </View>
           <View style={{ marginTop: 25, paddingHorizontal: 5 }}>
             <TouchableOpacity onPress={onPress} style={styles.button}>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     color: '#1E0203'
   },
-  text1: { paddingTop: 10, paddingLeft: 10, fontSize: 28, color: Colors.headText },
+  text1: { paddingTop: 10, paddingLeft: 10, fontSize: 28, color: '#1E0203', fontFamily: 'NoirPro-SemiBold' },
 });
 
 export default Header;

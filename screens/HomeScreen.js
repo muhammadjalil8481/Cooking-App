@@ -42,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={{ paddingTop: 5, paddingBottom: 15 }} />
             <ButtonComponent
               button3
-              buttonText="Add Meal +"
+              buttonText="Add Meal"
               paddingHorizontal={WIDTH < 375 ? 5 : 15}
               icon="arrow-right"
               onPress={() => navigation.navigate('AddMealScreen')}
@@ -132,6 +132,8 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   Text: {
+    fontFamily: 'NoirPro-Regular',
+    color: '#190C0C',
     fontSize: 28,
     paddingHorizontal: 5,
   },

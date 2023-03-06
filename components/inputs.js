@@ -48,7 +48,6 @@ const Input = ({ text, setText, placeholder, formKey, gender }) => {
             },
             shadowOpacity: 0.43,
             shadowRadius: 9.51,
-
             elevation: 15,
           }}
         />

@@ -225,4 +225,19 @@ let CameraICon = () => {
 
 }
 
-export { MenuIcon, LockIcon, ArrowIcon, CrossIcon, CheckIcon, CameraICon };
+const PlusSvg = () => {
+  return (
+    <>
+      <Svg xmlns="http://www.w3.org/2000/svg" width="16.583" height="14.641" viewBox="0 0 16.583 14.641">
+        <G id="Group_37775" data-name="Group 37775" transform="translate(-221.505 -188.821)">
+          <Path id="Vector" d="M0,0H2.514" transform="translate(234.824 196.141)" fill="none" stroke="#1e0203" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+          <Path id="Vector-2" data-name="Vector" d="M0,0H7.114" transform="translate(222.255 196.141)" fill="none" stroke="#1e0203" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+          <Path id="Vector-3" data-name="Vector" d="M0,13.141V0" transform="translate(229.796 189.571)" fill="none" stroke="#1e0203" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+        </G>
+      </Svg>
+
+    </>
+  )
+}
+
+export { MenuIcon, LockIcon, ArrowIcon, CrossIcon, CheckIcon, CameraICon, PlusSvg };
