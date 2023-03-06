@@ -64,9 +64,14 @@ const Login = ({ navigation }) => {
             left: 120,
             top: 30,
           }}>
-          <ImgAnimation Food1={Assets.FoodItems.fooditem6} />
+
+          {/* <Image source={item.Food1} resizeMode="contain" /> 
+        
+         <ImgAnimation Food1={Assets.FoodItems.fooditem6} />
           <ImgAnimation Food2={Assets.FoodItems.FoodItem1} />
-          {/* <Image source={item.Food1} resizeMode="contain" /> */}
+        
+        
+        */}
         </View>
 
         <Animated.View
