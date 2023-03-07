@@ -12,7 +12,9 @@ import { Colors } from '../assets/constants/Colors';
 import Icon from 'react-native-vector-icons/Feather';
 import { CrossIcon } from '../assets/Svg/SocialSvg';
 
-const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeText, removebtn, onPress }) => {
+const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeText,
+  shadow,
+  removebtn, onPress }) => {
   const [rememberMe, setRememberMe] = useState(false);
   const [myListData, setMyListData] = useState([
     { id: 1, title: '• 3 chicken breast' },
@@ -36,8 +38,17 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
             flexDirection: 'row',
             // justifyContent: 'center',
             paddingLeft: 15,
-            // paddingHorizontal: 5, // added padding
+            shadowColor: shadow,
+            shadowOffset: {
+              width: 10,
+              height: 20,
+            },
+            shadowOpacity: 0.43,
+            shadowRadius: 9.51,
+            elevation: 15,
           },
+          // paddingHorizontal: 5, // added padding
+
         ]}>
         <View style={{ alignSelf: 'flex-start', width: '70%' }}>
           <Text style={[styles.text, { textAlign: 'left', fontFamily: 'NoirPro-Light' }]}>

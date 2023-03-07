@@ -66,12 +66,13 @@ const Login = ({ navigation }) => {
           }}>
 
           {/* <Image source={item.Food1} resizeMode="contain" /> 
-        
-         <ImgAnimation Food1={Assets.FoodItems.fooditem6} />
+               */}
+
+          <ImgAnimation Food1={Assets.FoodItems.fooditem6} />
           <ImgAnimation Food2={Assets.FoodItems.FoodItem1} />
-        
-        
-        */}
+
+
+
         </View>
 
         <Animated.View
@@ -95,6 +96,7 @@ const Login = ({ navigation }) => {
                     height: 6,
                     backgroundColor: '#aAA',
                     borderRadius: 10,
+                    opacity: 0.40
                   }}
                 />
                 <Text style={styles.loginText}>Login</Text>
@@ -129,7 +131,12 @@ const Login = ({ navigation }) => {
                     size={20}
                     color={rememberMe ? Colors.Red : Colors.Red}
                   />
-                  <Text style={[styles.text, { marginLeft: 15 }]}>
+                  <Text style={[styles.text, {
+                    marginLeft: 15,
+                    fontFamily: 'NoirPro-Regular',
+                    color: Colors.tertiary,
+                    opacity: 0.48,
+                  }]}>
                     Remember me
                   </Text>
                 </TouchableOpacity>
@@ -139,6 +146,7 @@ const Login = ({ navigation }) => {
                       styles.text,
                       {
                         textDecorationLine: 'underline',
+                        fontFamily: 'NoirPro-Regular',
                         color: Colors.tertiary,
                         opacity: 0.48,
                       },
@@ -203,10 +211,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   loginText: {
-    fontSize: WIDTH <= 375 ? 25 : 30,
-    // fontFamily: Fonts.default,
+    fontSize: WIDTH <= 375 ? 20 : 25,
+    fontFamily: 'NoirPro-SemiBold',
     backgroundColor: '#FFFF',
-    fontWeight: '700',
     marginRight: 2.5,
     top: 5,
     color: '#1E0203',

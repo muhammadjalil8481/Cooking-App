@@ -67,7 +67,6 @@ const GreyInput = ({ text, setText, placeholder, formKey, gender, addText, texta
                             margin: 5,
                             // fontFamily: Fonts.default,
                             fontWeight: '400',
-
                             opacity: text.length < 1 ? 0.5 : 1,
                             fontSize: 14,
                             borderRadius: 10,

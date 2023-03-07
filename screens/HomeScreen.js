@@ -51,30 +51,31 @@ const HomeScreen = ({ navigation }) => {
               width={WIDTH < 375 ? 110 : 375}
             />
             <View style={styles.row}>
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={styles.Text}>My Meal</Text>
-                <View
-                  style={{
-                    borderWidth: 1,
-                    borderColor: 'red',
-                    height: 1,
-                    marginTop: 15,
-                    paddingHorizontal: 15,
-                  }}
-                />
+              <View style={{ flexDirection: 'row', }}>
+                <Text style={[styles.Text, {
+                  backgroundColor: Colors.BackgroundColorW,
+                  position: 'absolute',
+                  bottom: -15
+                }]}>My Meals</Text>
+
               </View>
               <View
                 style={{
                   paddingHorizontal: 5,
                   paddingBottom: 15,
+                  position: 'absolute',
+                  top: 40,
+                  right: 0,
+                  backgroundColor: '#EEEBEB',
                 }}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={[styles.button, {}]}>
                   <MenuIcon />
                 </TouchableOpacity>
               </View>
             </View>
             <CardCompoLG
               checkButton
+              shadow={'#C00006'}
               bgColor={'#C00006'}
               FoodImage={Assets.FoodItems.FoodItem1}
               ButtonComponent={
@@ -92,6 +93,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={{ padding: 5 }} />
             <CardCompoLG
               checkButton
+              shadow={'#00A0C0'}
               bgColor={'#00A0C0'}
               FoodImage={Assets.FoodItems.FoodItem1}
               ButtonComponent={
@@ -109,7 +111,7 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
 
@@ -122,11 +124,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   row: {
+    borderColor: Colors.Red,
+    marginVertical: 25,
     paddingTop: 15,
+    borderBottomWidth: 1,
   },
   fab: {
     position: 'absolute',
-
     backgroundColor: '#fff',
     right: 0,
     bottom: 0,
@@ -140,8 +144,10 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute',
     bottom: 16,
-    right: 1,
+    right: 0,
+
     backgroundColor: '#EEEBEB',
+
     borderRadius: 10,
     width: 50,
     height: 50,

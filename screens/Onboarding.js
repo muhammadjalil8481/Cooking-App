@@ -108,7 +108,7 @@ const Onboarding = ({ navigation }) => {
   };
   const goToNextSlide = () => {
     const nextSlideIndex = currentSlideIndex + 1;
-    if (currentSlideIndex === 2) {
+    if (currentSlideIndex === 3) {
       navigation.replace('Login');
       return;
     }

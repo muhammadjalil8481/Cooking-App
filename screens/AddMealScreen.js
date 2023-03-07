@@ -15,7 +15,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import GreyInput from '../components/greyInput';
 import { CameraICon } from '../assets/Svg/SocialSvg';
 import Mymodal from '../components/Mymodal';
-
 const AddMealScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [data, setData] = useState({
@@ -76,12 +75,11 @@ const AddMealScreen = ({ navigation }) => {
                   <View style={{}}>
                     <View style={{ marginVertical: 5 }} />
                     <View style={styles.loginTextContainer}>
-
-                      <Text style={styles.loginText}>Add Meal</Text>
+                      <Text style={styles.loginText}>Add Meal Title</Text>
                     </View>
                     <GreyInput
-                      addText={'Add Meal Title'}
-                      placeholder="Password"
+                      addText={'Add Description'}
+                      placeholder="Discriptions......"
                       text={data.password}
                       setText={setData}
                       formKey="password"
@@ -164,6 +162,7 @@ const AddMealScreen = ({ navigation }) => {
                                 alignItems: 'center',
                                 justifyContent: 'space-evenly',
                                 marginTop: 15,
+
                                 // marginTop: 25,
                                 height: WIDTH < 375 ? 40 : 44,
                                 width: WIDTH < 375 ? 125 : 44,
