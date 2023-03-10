@@ -47,7 +47,7 @@ const HomeScreen = ({navigation}) => {
               <View>
                 <SearchbarCompo />
               </View>
-              <View style={{}} />
+              <View style={{marginVertical: 10}} />
               <ButtonComponent
                 button3
                 buttonText="Add Meal"
@@ -56,7 +56,7 @@ const HomeScreen = ({navigation}) => {
                 onPress={() => navigation.navigate('AddMealScreen')}
                 widthIcon={WIDTH < 375 ? 40 : 40}
                 height={WIDTH < 375 ? 40 : 40}
-                width={WIDTH < 375 ? 110 : 370}
+                width={WIDTH < 375 ? 370 : 370}
               />
               <View style={styles.row}>
                 <View style={{flexDirection: 'row'}}>
@@ -95,7 +95,13 @@ const HomeScreen = ({navigation}) => {
             </View>
           </View>
         </ScrollView>
-        <View style={{height: '60%', paddingVertical: 5}}>
+        <View
+          style={{
+            height: WIDTH <= 375 ? 375 : 370,
+            width: WIDTH <= 375 ? 310 : 370,
+            marginTop: 15,
+            alignSelf: 'center',
+          }}>
           <ScrollView nestedScrollEnabled={true} contentContainerStyle={{}}>
             <CardCompoLG
               checkButton
@@ -150,8 +156,8 @@ const styles = StyleSheet.create({
   },
   row: {
     borderColor: Colors.Red,
-    marginVertical: 25,
-    paddingTop: 15,
+    // marginVertical: 25,
+    // paddingTop: 15,
     borderBottomWidth: 1,
     height: 20,
   },

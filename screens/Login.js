@@ -125,7 +125,7 @@ const Login = ({navigation}) => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  paddingHorizontal: 10,
+                  // paddingHorizontal: 10,
                   marginTop: 5,
                 }}>
                 <TouchableOpacity
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: '#FFFF',
     borderRadius: 10,
-    marginTop: 25,
+    marginTop: 15,
     paddingTop: 25,
     paddingBottom: 25,
     width: WIDTH <= 375 ? 315 : 375,

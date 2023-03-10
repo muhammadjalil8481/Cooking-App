@@ -52,7 +52,7 @@ const ButtonComponent = ({
               style={{
                 color: textColor,
 
-                fontSize: 16,
+                fontSize: WIDTH <= 375 ? 12 : 16,
                 fontFamily: 'Bahnschrift',
                 fontWeight: 400,
               }}>

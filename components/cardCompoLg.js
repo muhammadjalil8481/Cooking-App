@@ -179,12 +179,12 @@ const CardCompoLG = ({
 export default CardCompoLG;
 const styles = StyleSheet.create({
   contentContainer: {
-    marginTop: 10,
+    marginTop: 15,
     alignSelf: 'center',
     backgroundColor: '#FFFF',
     borderRadius: 20,
-    width: WIDTH <= 375 ? 110 : 375,
-    paddingHorizontal: 5,
+    width: '95%',
+    // paddingHorizontal: 5,
     shadowOffset: {
       width: 0,
       height: 7,
@@ -198,8 +198,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: '#FFFF',
     borderRadius: 20,
-    width: WIDTH <= 375 ? 110 : 375,
-    paddingHorizontal: 5,
+    width: '100%',
+    // paddingHorizontal: 5,
     shadowOffset: {
       width: 0,
       height: 7,
