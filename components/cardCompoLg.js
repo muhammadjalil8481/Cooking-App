@@ -6,11 +6,11 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
-import {HEIGHT, WIDTH} from '../assets/constants/Dimensions';
-import {Colors} from '../assets/constants/Colors';
+import React, { useState } from 'react';
+import { HEIGHT, WIDTH } from '../assets/constants/Dimensions';
+import { Colors } from '../assets/constants/Colors';
 import Icon from 'react-native-vector-icons/Feather';
-import {CrossIcon} from '../assets/Svg/SocialSvg';
+import { CrossIcon } from '../assets/Svg/SocialSvg';
 
 const CardCompoLG = ({
   FoodImage,
@@ -24,12 +24,12 @@ const CardCompoLG = ({
 }) => {
   const [rememberMe, setRememberMe] = useState(false);
   const [myListData, setMyListData] = useState([
-    {id: 1, title: '• 3 chicken breast'},
-    {id: 2, title: '• Salt'},
-    {id: 3, title: '• Pepper'},
-    {id: 4, title: '• Montreal roasted chicken'},
+    { id: 1, title: '• 3 chicken breast' },
+    { id: 2, title: '• Salt' },
+    { id: 3, title: '• Pepper' },
+    { id: 4, title: '• Montreal roasted chicken' },
   ]);
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text style={styles.title}>{item.title}</Text>
     </View>
@@ -55,35 +55,37 @@ const CardCompoLG = ({
           },
           // paddingHorizontal: 5, // added padding
         ]}>
-        <View style={{alignSelf: 'flex-start', width: '70%'}}>
-          <Text
-            style={[
-              styles.text,
-              {textAlign: 'left', fontFamily: 'NoirPro-Light'},
-            ]}>
-            Green
+        <View style={{ alignSelf: 'flex-start', width: '70%', justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ width: '90%', paddingTop: 10 }}>
             <Text
-              style={{
-                fontWeight: 'bold',
-                fontSize: 20,
-                fontFamily: 'NoirPro-Bold',
-                letterSpacing: 1.5,
-              }}>
-              {''} Salad
+              style={[
+                styles.text,
+                { textAlign: 'left', fontFamily: 'NoirPro-Light' },
+              ]}>
+              Green
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                  fontFamily: 'NoirPro-Bold',
+                  letterSpacing: 1.5,
+                }}>
+                {''} Salad
+              </Text>
             </Text>
-          </Text>
-          <Text
-            numberOfLines={2}
-            style={[
-              styles.text1,
-              {
-                color: Colors.primary,
-                fontWeight: '300',
-                fontFamily: 'NoirPro-Regular',
-              },
-            ]}>
-            Lorem ipsum dolor sit amet ntetur {'\n'}sadipscing elitr sed diam.
-          </Text>
+            <Text
+              numberOfLines={2}
+              style={[
+                styles.text1,
+                {
+                  color: Colors.primary,
+                  fontWeight: '300',
+                  fontFamily: 'NoirPro-Regular',
+                },
+              ]}>
+              Lorem ipsum dolor sit amet ntetur {'\n'}sadipscing elitr sed diam.
+            </Text>
+          </View>
         </View>
         <View
           style={{
@@ -91,18 +93,20 @@ const CardCompoLG = ({
             height: 74,
             alignSelf: 'center',
             marginLeft: 10,
+            padding: 5
+
           }}>
           <Image
             source={FoodImage}
             resizeMode="contain"
-            style={{width: '100%', height: '100%'}}
+            style={{ width: '100%', height: '100%', padding: 5 }}
           />
         </View>
       </View>
       <View style={styles.content}>
         <Text
           numberOfLines={2}
-          style={[styles.text1, {fontFamily: 'NoirPro-SemiBold'}]}>
+          style={[styles.text1, { fontFamily: 'NoirPro-SemiBold' }]}>
           Ingredients:
         </Text>
         <View style={styles.container}>
@@ -116,13 +120,13 @@ const CardCompoLG = ({
           numberOfLines={2}
           style={[
             styles.text1,
-            {fontWeight: 'bold', fontFamily: 'NoirPro-SemiBold'},
+            { fontWeight: 'bold', fontFamily: 'NoirPro-SemiBold' },
           ]}>
           Story
         </Text>
         <Text
           numberOfLines={2}
-          style={[styles.text1, {fontFamily: 'NoirPro-Light'}]}>
+          style={[styles.text1, { fontFamily: 'NoirPro-Light' }]}>
           Add layer of season to raw chicken Place on hot stove stop pan with
           dash of olive oil at medium heat - 8 minutes Flip to other side for
           additional 7 minutes turn temperatur to Medium+ to get burn marks for
@@ -160,7 +164,7 @@ const CardCompoLG = ({
           </TouchableOpacity>
         )}
         {removebtn && (
-          <TouchableOpacity style={{flexDirection: 'row'}} onPress={onPress}>
+          <TouchableOpacity style={{ flexDirection: 'row' }} onPress={onPress}>
             <CrossIcon />
             <Text
               style={{
@@ -183,8 +187,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: '#FFFF',
     borderRadius: 20,
-    width: WIDTH <= 375 ? 110 : 375,
-    paddingHorizontal: 5,
+    width: '90%',
+    // paddingHorizontal: 5,
     shadowOffset: {
       width: 0,
       height: 7,
@@ -198,8 +202,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: '#FFFF',
     borderRadius: 20,
-    width: WIDTH <= 375 ? 110 : 375,
-    paddingHorizontal: 5,
+    width: '100%',
+    // paddingHorizontal: 5,
     shadowOffset: {
       width: 0,
       height: 7,

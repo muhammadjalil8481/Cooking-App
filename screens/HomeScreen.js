@@ -7,19 +7,19 @@ import {
   Image,
 } from 'react-native';
 
-import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../components/Header';
 import SearchbarCompo from '../components/searchbar';
 import ButtonComponent from '../components/buttoncompone';
-import {WIDTH} from '../assets/constants/Dimensions';
+import { WIDTH } from '../assets/constants/Dimensions';
 import Assets from '../assets';
-import {MenuIcon} from '../assets/Svg/SocialSvg';
+import { MenuIcon } from '../assets/Svg/SocialSvg';
 import CardCompoLG from '../components/cardCompoLg';
-import {Colors} from '../assets/constants/Colors';
+import { Colors } from '../assets/constants/Colors';
 import MyTooltip from '../components/tooltipCompo';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onCloseTooltip = () => {
@@ -32,7 +32,7 @@ const HomeScreen = ({navigation}) => {
           bounces={false}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{}}>
-          <View style={{paddingHorizontal: 15}}>
+          <View style={{ paddingHorizontal: 15 }}>
             <View
               style={{
                 flex: 1,
@@ -47,7 +47,7 @@ const HomeScreen = ({navigation}) => {
               <View>
                 <SearchbarCompo />
               </View>
-              <View style={{}} />
+              <View style={{ width: '90%' }} />
               <ButtonComponent
                 button3
                 buttonText="Add Meal"
@@ -56,10 +56,10 @@ const HomeScreen = ({navigation}) => {
                 onPress={() => navigation.navigate('AddMealScreen')}
                 widthIcon={WIDTH < 375 ? 40 : 40}
                 height={WIDTH < 375 ? 40 : 40}
-                width={WIDTH < 375 ? 110 : 370}
+                width='100%'
               />
               <View style={styles.row}>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                   <Text
                     style={[
                       styles.Text,
@@ -73,29 +73,36 @@ const HomeScreen = ({navigation}) => {
                   </Text>
                 </View>
                 <View
-                  style={{
-                    paddingHorizontal: 5,
-                    paddingBottom: 15,
-                    position: 'absolute',
-                    top: 40,
-                    right: 0,
-                    backgroundColor: '#EEEBEB',
-                  }}>
-                  <View
-                    activeOpacity={1}
-                    style={[styles.button, {position: 'absolute'}]}>
-                    <MyTooltip
-                      isVisible={isVisible}
-                      onClose={onCloseTooltip}
-                      setVisible={() => setIsVisible(!isVisible)}
-                    />
-                  </View>
+                  style={
+                    [styles.button1,
+                    {
+                      marginLeft: 10,
+                      // paddingHorizontal: 5,
+                      // paddingBottom: 15,
+                      position: 'absolute',
+                      top: -8,
+                      right: 0,
+                      width: 50,
+                      height: 50,
+                      backgroundColor: '#EEEBEB',
+                      justifyContent: 'center',
+                      alignItems: 'center'
+                    }
+                    ]}
+                >
+
+                  <MyTooltip
+                    isVisible={isVisible}
+                    onClose={onCloseTooltip}
+                    setVisible={() => setIsVisible(!isVisible)}
+                  />
+
                 </View>
               </View>
             </View>
           </View>
         </ScrollView>
-        <View style={{height: '60%', paddingVertical: 5}}>
+        <View style={{ height: '55%', paddingVertical: 5, paddingHorizontal: 5 }}>
           <ScrollView nestedScrollEnabled={true} contentContainerStyle={{}}>
             <CardCompoLG
               checkButton
@@ -114,7 +121,7 @@ const HomeScreen = ({navigation}) => {
                 />
               }
             />
-            <View style={{padding: 15}} />
+            <View style={{ padding: 15 }} />
             <CardCompoLG
               checkButton
               shadow={'#00A0C0'}
@@ -132,7 +139,7 @@ const HomeScreen = ({navigation}) => {
                 />
               }
             />
-            <View style={{padding: 5}} />
+            <View style={{ padding: 5 }} />
           </ScrollView>
         </View>
       </SafeAreaView>
@@ -180,6 +187,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 15,
+  },
+  button1: {
+    position: 'absolute',
+    bottom: 16,
+    right: 0,
+
+    backgroundColor: '#EEEBEB',
+
+    borderRadius: 10,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+    // elevation: 15,
   },
   text: {
     color: '#fff',
