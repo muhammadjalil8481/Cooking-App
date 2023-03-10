@@ -7,72 +7,96 @@ import {
   Image,
 } from 'react-native';
 
-import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, {useState} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Header from '../components/Header';
 import SearchbarCompo from '../components/searchbar';
 import ButtonComponent from '../components/buttoncompone';
-import { WIDTH } from '../assets/constants/Dimensions';
+import {WIDTH} from '../assets/constants/Dimensions';
 import Assets from '../assets';
-import { MenuIcon } from '../assets/Svg/SocialSvg';
+import {MenuIcon} from '../assets/Svg/SocialSvg';
 import CardCompoLG from '../components/cardCompoLg';
-import { Colors } from '../assets/constants/Colors';
-const HomeScreen = ({ navigation }) => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView
-        bounces={false}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={{ paddingHorizontal: 15 }}>
-          <View
-            style={{
-              flex: 1,
-              marginTop: 'auto',
-              paddingTop: 25,
-              paddingBottom: 15,
-            }}>
-            <Header
-              homeHeader
-              onPress={() => navigation.navigate('CartScreen')}
-            />
-            <View style={{}}>
-              <SearchbarCompo />
-            </View>
-            <View style={{ paddingTop: 5, paddingBottom: 15 }} />
-            <ButtonComponent
-              button3
-              buttonText="Add Meal"
-              paddingHorizontal={WIDTH < 375 ? 5 : 15}
-              icon="arrow-right"
-              onPress={() => navigation.navigate('AddMealScreen')}
-              widthIcon={WIDTH < 375 ? 40 : 57}
-              height={WIDTH < 375 ? 40 : 57}
-              width={WIDTH < 375 ? 110 : 375}
-            />
-            <View style={styles.row}>
-              <View style={{ flexDirection: 'row', }}>
-                <Text style={[styles.Text, {
-                  backgroundColor: Colors.BackgroundColorW,
-                  position: 'absolute',
-                  bottom: -15
-                }]}>My Meals</Text>
+import {Colors} from '../assets/constants/Colors';
+import MyTooltip from '../components/tooltipCompo';
 
+const HomeScreen = ({navigation}) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const onCloseTooltip = () => {
+    setIsVisible(false);
+  };
+  return (
+    <>
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          bounces={false}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{}}>
+          <View style={{paddingHorizontal: 15}}>
+            <View
+              style={{
+                flex: 1,
+                marginTop: 'auto',
+                paddingTop: 15,
+                marginTop: 10,
+              }}>
+              <Header
+                homeHeader
+                onPress={() => navigation.navigate('CartScreen')}
+              />
+              <View>
+                <SearchbarCompo />
               </View>
-              <View
-                style={{
-                  paddingHorizontal: 5,
-                  paddingBottom: 15,
-                  position: 'absolute',
-                  top: 40,
-                  right: 0,
-                  backgroundColor: '#EEEBEB',
-                }}>
-                <TouchableOpacity style={[styles.button, {}]}>
-                  <MenuIcon />
-                </TouchableOpacity>
+              <View style={{}} />
+              <ButtonComponent
+                button3
+                buttonText="Add Meal"
+                paddingHorizontal={WIDTH < 375 ? 5 : 15}
+                icon="arrow-right"
+                onPress={() => navigation.navigate('AddMealScreen')}
+                widthIcon={WIDTH < 375 ? 40 : 40}
+                height={WIDTH < 375 ? 40 : 40}
+                width={WIDTH < 375 ? 110 : 370}
+              />
+              <View style={styles.row}>
+                <View style={{flexDirection: 'row'}}>
+                  <Text
+                    style={[
+                      styles.Text,
+                      {
+                        backgroundColor: Colors.BackgroundColorW,
+                        position: 'absolute',
+                        bottom: -20,
+                      },
+                    ]}>
+                    My Meals
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    paddingHorizontal: 5,
+                    paddingBottom: 15,
+                    position: 'absolute',
+                    top: 40,
+                    right: 0,
+                    backgroundColor: '#EEEBEB',
+                  }}>
+                  <View
+                    activeOpacity={1}
+                    style={[styles.button, {position: 'absolute'}]}>
+                    <MyTooltip
+                      isVisible={isVisible}
+                      onClose={onCloseTooltip}
+                      setVisible={() => setIsVisible(!isVisible)}
+                    />
+                  </View>
+                </View>
               </View>
             </View>
+          </View>
+        </ScrollView>
+        <View style={{height: '60%', paddingVertical: 5}}>
+          <ScrollView nestedScrollEnabled={true} contentContainerStyle={{}}>
             <CardCompoLG
               checkButton
               shadow={'#C00006'}
@@ -90,7 +114,7 @@ const HomeScreen = ({ navigation }) => {
                 />
               }
             />
-            <View style={{ padding: 5 }} />
+            <View style={{padding: 15}} />
             <CardCompoLG
               checkButton
               shadow={'#00A0C0'}
@@ -108,10 +132,11 @@ const HomeScreen = ({ navigation }) => {
                 />
               }
             />
-          </View>
+            <View style={{padding: 5}} />
+          </ScrollView>
         </View>
-      </ScrollView>
-    </SafeAreaView >
+      </SafeAreaView>
+    </>
   );
 };
 
@@ -128,12 +153,13 @@ const styles = StyleSheet.create({
     marginVertical: 25,
     paddingTop: 15,
     borderBottomWidth: 1,
+    height: 20,
   },
   fab: {
     position: 'absolute',
     backgroundColor: '#fff',
     right: 0,
-    bottom: 0,
+    bottom: 10,
   },
   Text: {
     fontFamily: 'NoirPro-Regular',

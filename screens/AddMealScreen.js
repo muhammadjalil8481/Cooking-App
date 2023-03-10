@@ -5,18 +5,18 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Header from '../components/Header';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors } from '../assets/constants/Colors';
-import { HEIGHT, WIDTH } from '../assets/constants/Dimensions';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Colors} from '../assets/constants/Colors';
+import {HEIGHT, WIDTH} from '../assets/constants/Dimensions';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import LinearGradient from 'react-native-linear-gradient';
 import GreyInput from '../components/greyInput';
-import { CameraICon } from '../assets/Svg/SocialSvg';
+import {CameraICon} from '../assets/Svg/SocialSvg';
 import Mymodal from '../components/Mymodal';
-const AddMealScreen = ({ navigation }) => {
-  const [modalVisible, setModalVisible] = useState(false)
+const AddMealScreen = ({navigation}) => {
+  const [modalVisible, setModalVisible] = useState(false);
   const [data, setData] = useState({
     username: '',
     password: '',
@@ -27,12 +27,12 @@ const AddMealScreen = ({ navigation }) => {
         <ScrollView
           bounces={false}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ flexGrow: 1 }}>
+          contentContainerStyle={{flexGrow: 1}}>
           <View
             style={{
               flex: 1,
               paddingHorizontal: 15,
-              marginTop: 'auto',
+              marginTop: 15,
               paddingBottom: 10,
             }}>
             <Header
@@ -42,17 +42,26 @@ const AddMealScreen = ({ navigation }) => {
               onPress1={() => setModalVisible(!modalVisible)}
               blueBtn
             />
-            <View style={{ alignSelf: 'center' }}>
+            <View style={{alignSelf: 'center'}}>
               <View style={styles.contentContainere}>
                 <CameraICon />
               </View>
-              <Text style={{ textAlign: 'center', color: '#000', fontSize: 12, marginTop: 5 }}>Upload meal {'\n'} image here</Text>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  color: '#000',
+                  fontSize: 12,
+                  marginTop: 5,
+                }}>
+                Upload meal {'\n'} image here
+              </Text>
             </View>
-            <View style={{ marginTop: 15 }}>
+            <View style={{marginTop: 15}}>
               <LinearGradient
                 colors={['#FBF9F9', '#CCCB']}
                 style={{
-                  backgroundColor: '#FBF9F9', borderRadius: 20,
+                  backgroundColor: '#FBF9F9',
+                  borderRadius: 20,
                   padding: 15,
                   paddingTop: 15,
                   paddingBottom: 10,
@@ -63,19 +72,31 @@ const AddMealScreen = ({ navigation }) => {
                   shadowOpacity: 0.43,
                   shadowRadius: 9.51,
                   elevation: 15,
-                }}
-              >
+                }}>
                 <KeyboardAwareScrollView
                   keyboardShouldPersistTaps="handled"
                   enableOnAndroid={true}
                   enableAutomaticScroll={true}
                   bounces={false}
                   showsVerticalScrollIndicator={false}
-                  contentContainerStyle={{ flexGrow: 1 }}>
+                  contentContainerStyle={{flexGrow: 1}}>
                   <View style={{}}>
-                    <View style={{ marginVertical: 5 }} />
+                    <View style={{marginVertical: 5}} />
                     <View style={styles.loginTextContainer}>
-                      <Text style={styles.loginText}>Add Meal Title</Text>
+                      <Text style={styles.loginText}>Add Meal</Text>
+                    </View>
+                    <View style={{width: '100%'}}>
+                      <GreyInput
+                        addText={'Add Meal Title'}
+                        placeholder="Ingredient #1"
+                        text={data.password}
+                        setText={setData}
+                        formKey="password"
+                        height={44}
+                      />
+                    </View>
+                    <View style={styles.loginTextContainer}>
+                      <Text style={styles.loginText}>Add Description</Text>
                     </View>
                     <GreyInput
                       addText={'Add Description'}
@@ -83,32 +104,30 @@ const AddMealScreen = ({ navigation }) => {
                       text={data.password}
                       setText={setData}
                       formKey="password"
-                      textarea={true
-                      }
+                      numberOfLines={4}
                     />
                     <View style={styles.loginTextContainer}>
-
                       <Text style={styles.loginText}>Add Meal</Text>
                     </View>
-                    <View style={{ flexDirection: 'row' }}>
-
-                      <View style={{ width: '85%' }}>
+                    <View style={{flexDirection: 'row'}}>
+                      <View style={{width: '85%'}}>
                         <GreyInput
                           addText={'Add Meal Title'}
-                          placeholder="Password"
+                          placeholder="Ingredient #1"
                           text={data.password}
                           setText={setData}
                           formKey="password"
+                          height={44}
                         />
-                        <View style={{ width: '100%', flexDirection: 'row' }}>
-                          <View style={{ width: '100%' }}>
-
+                        <View style={{width: '100%', flexDirection: 'row'}}>
+                          <View style={{width: '100%'}}>
                             <GreyInput
                               addText={'Add Meal Title'}
-                              placeholder="Password"
+                              placeholder="Ingredient #2"
                               text={data.password}
                               setText={setData}
                               formKey="password"
+                              height={44}
                             />
                           </View>
                           <View>
@@ -117,42 +136,49 @@ const AddMealScreen = ({ navigation }) => {
                               style={{
                                 alignItems: 'center',
                                 justifyContent: 'space-evenly',
-                                marginTop: 10,
+                                marginTop: 5,
                                 // marginTop: 25,
                                 height: WIDTH < 375 ? 40 : 44,
                                 width: WIDTH < 375 ? 125 : 44,
                                 borderRadius: 10,
                                 backgroundColor: Colors.Red,
                               }}>
-                              <Text style={{ color: '#fff' }}>+</Text>
+                              <Text style={{color: '#fff'}}>+</Text>
                             </TouchableOpacity>
                           </View>
                         </View>
                       </View>
                     </View>
                     <View style={styles.loginTextContainer}>
-
                       <Text style={styles.loginText}>Add Story</Text>
                     </View>
-                    <View style={{ flexDirection: 'row', }}>
-
-                      <View style={{ width: '85%' }}>
+                    <View style={{flexDirection: 'row'}}>
+                      <View style={{width: '85%'}}>
                         <GreyInput
                           addText={'Add Meal Title'}
-                          placeholder="Password"
+                          placeholder="Story #1"
                           text={data.password}
                           setText={setData}
                           formKey="password"
+                          height={44}
                         />
-                        <View style={{ width: '100%', flexDirection: 'row' }}>
-                          <View style={{ width: '100%' }}>
-
+                        <GreyInput
+                          addText={'Add Meal Title'}
+                          placeholder="Story #2"
+                          text={data.password}
+                          setText={setData}
+                          formKey="password"
+                          height={44}
+                        />
+                        <View style={{width: '100%', flexDirection: 'row'}}>
+                          <View style={{width: '100%'}}>
                             <GreyInput
                               addText={'Add Meal Title'}
-                              placeholder="Password"
+                              placeholder="Story #3"
                               text={data.password}
                               setText={setData}
                               formKey="password"
+                              height={44}
                             />
                           </View>
                           <View>
@@ -161,7 +187,7 @@ const AddMealScreen = ({ navigation }) => {
                               style={{
                                 alignItems: 'center',
                                 justifyContent: 'space-evenly',
-                                marginTop: 15,
+                                marginTop: 5,
 
                                 // marginTop: 25,
                                 height: WIDTH < 375 ? 40 : 44,
@@ -169,7 +195,7 @@ const AddMealScreen = ({ navigation }) => {
                                 borderRadius: 10,
                                 backgroundColor: Colors.Red,
                               }}>
-                              <Text style={{ color: '#fff' }}>+</Text>
+                              <Text style={{color: '#fff'}}>+</Text>
                             </TouchableOpacity>
                           </View>
                         </View>
@@ -183,10 +209,12 @@ const AddMealScreen = ({ navigation }) => {
         </ScrollView>
       </SafeAreaView>
 
-      <Mymodal modaltext1="Meal Added Successfully" modalVisible={modalVisible} setModalVisible={setModalVisible}
-        innerButton={() => navigation.navigate('HomeScreen')} />
-
-
+      <Mymodal
+        modaltext1="Meal Added Successfully"
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        innerButton={() => navigation.navigate('HomeScreen')}
+      />
     </>
   );
 };
@@ -196,7 +224,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.BackgroundColorW,
     justifyContent: 'flex-end',
-
   },
   contentContainere: {
     borderWidth: 1,
@@ -248,7 +275,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
 
     color: '#1E0203',
-
   },
   contentContainer: {
     alignSelf: 'center',
@@ -287,7 +313,6 @@ const styles = StyleSheet.create({
   },
 
   loginTextContainer: {
-
     // flexDirection: 'row',
     // alignItems: 'center',
     // alignSelf: 'center',
@@ -296,10 +321,6 @@ const styles = StyleSheet.create({
     // top: -50,
     // left: 50,
   },
-
-
 });
 
 export default AddMealScreen;
-
-

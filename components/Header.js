@@ -1,20 +1,25 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
-import { Avatar, FAB } from 'react-native-paper';
+import {Avatar, FAB} from 'react-native-paper';
 import Assets from '../assets';
-import { ArrowIcon, LockIcon } from '../assets/Svg/SocialSvg';
-import { Colors } from '../assets/constants/Colors';
+import {LockIcon} from '../assets/Svg/SocialSvg';
 
-const Header = ({ homeHeader, header, onPress, headText, onPress1, blueBtn }) => {
+const Header = ({homeHeader, header, onPress, headText, onPress1, blueBtn}) => {
   return (
     <View>
       {homeHeader && (
         <View style={styles.Container}>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{flexDirection: 'row'}}>
             <Avatar.Image size={40} source={Assets.backgroundImages.profile} />
-            <Text style={[styles.text, { fontFamily: 'Bouquet Typeface' }]}>Good Morning Alexa</Text>
+            <Text
+              style={[
+                styles.text,
+                {fontFamily: 'Bouquet Typeface', fontSize: 16},
+              ]}>
+              Good Morning Alexa
+            </Text>
           </View>
-          <View style={{ marginTop: 25, paddingHorizontal: 5 }}>
+          <View style={{marginTop: 25, paddingHorizontal: 5}}>
             <TouchableOpacity onPress={onPress} style={styles.button}>
               <LockIcon />
             </TouchableOpacity>
@@ -22,22 +27,27 @@ const Header = ({ homeHeader, header, onPress, headText, onPress1, blueBtn }) =>
         </View>
       )}
       {header && (
-        <View style={[styles.Container,]}>
+        <View style={[styles.Container]}>
           <View style={{}}>
             <TouchableOpacity style={styles.button1} onPress={onPress}>
-              {/* <ArrowIcon /> */}
+              <Image
+                source={Assets.icon.headericon}
+                resizeMode="contain"
+                style={{width: '40%', height: '40%'}}
+              />
             </TouchableOpacity>
-            <View style={{ alignSelf: 'center', paddingBottom: 25 }}>
+            <View style={{alignSelf: 'center', paddingBottom: 25}}>
               <Text style={styles.text1}>{headText}</Text>
             </View>
             {blueBtn && (
               <>
-                <TouchableOpacity style={[styles.button2, { backgroundColor: '#1492E6', }]} onPress={onPress1}>
-                  <Text style={{ color: '#ffff' }}>Save Meal</Text>
+                <TouchableOpacity
+                  style={[styles.button2, {backgroundColor: '#1492E6'}]}
+                  onPress={onPress1}>
+                  <Text style={{color: '#ffff'}}>Save Meal</Text>
                 </TouchableOpacity>
               </>
             )}
-
           </View>
         </View>
       )}
@@ -95,9 +105,15 @@ const styles = StyleSheet.create({
   text: {
     paddingTop: 10,
     paddingLeft: 10,
-    color: '#1E0203'
+    color: '#1E0203',
   },
-  text1: { paddingTop: 10, paddingLeft: 10, fontSize: 28, color: '#1E0203', fontFamily: 'NoirPro-SemiBold' },
+  text1: {
+    paddingTop: 10,
+    paddingLeft: 10,
+    fontSize: 28,
+    color: '#1E0203',
+    fontFamily: 'NoirPro-SemiBold',
+  },
 });
 
 export default Header;

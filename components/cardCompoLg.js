@@ -6,24 +6,30 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import React, { useState } from 'react';
-import { HEIGHT, WIDTH } from '../assets/constants/Dimensions';
-import { Colors } from '../assets/constants/Colors';
+import React, {useState} from 'react';
+import {HEIGHT, WIDTH} from '../assets/constants/Dimensions';
+import {Colors} from '../assets/constants/Colors';
 import Icon from 'react-native-vector-icons/Feather';
-import { CrossIcon } from '../assets/Svg/SocialSvg';
+import {CrossIcon} from '../assets/Svg/SocialSvg';
 
-const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeText,
+const CardCompoLG = ({
+  FoodImage,
+  ButtonComponent,
+  bgColor,
+  checkButton,
+  removeText,
   shadow,
-  removebtn, onPress }) => {
+  removebtn,
+  onPress,
+}) => {
   const [rememberMe, setRememberMe] = useState(false);
   const [myListData, setMyListData] = useState([
-    { id: 1, title: '• 3 chicken breast' },
-    { id: 2, title: '• Salt' },
-    { id: 3, title: '• Pepper' },
-    { id: 4, title: '• Montreal roasted chicken' },
+    {id: 1, title: '• 3 chicken breast'},
+    {id: 2, title: '• Salt'},
+    {id: 3, title: '• Pepper'},
+    {id: 4, title: '• Montreal roasted chicken'},
   ]);
-
-  const renderItem = ({ item }) => (
+  const renderItem = ({item}) => (
     <View style={styles.item}>
       <Text style={styles.title}>{item.title}</Text>
     </View>
@@ -48,16 +54,34 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
             elevation: 15,
           },
           // paddingHorizontal: 5, // added padding
-
         ]}>
-        <View style={{ alignSelf: 'flex-start', width: '70%' }}>
-          <Text style={[styles.text, { textAlign: 'left', fontFamily: 'NoirPro-Light' }]}>
+        <View style={{alignSelf: 'flex-start', width: '70%'}}>
+          <Text
+            style={[
+              styles.text,
+              {textAlign: 'left', fontFamily: 'NoirPro-Light'},
+            ]}>
             Green
-            <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'NoirPro-Bold' }}>  Salad</Text>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                fontSize: 20,
+                fontFamily: 'NoirPro-Bold',
+                letterSpacing: 1.5,
+              }}>
+              {''} Salad
+            </Text>
           </Text>
           <Text
             numberOfLines={2}
-            style={[styles.text1, { color: Colors.primary, fontWeight: '300', fontFamily: 'NoirPro-Regular' }]}>
+            style={[
+              styles.text1,
+              {
+                color: Colors.primary,
+                fontWeight: '300',
+                fontFamily: 'NoirPro-Regular',
+              },
+            ]}>
             Lorem ipsum dolor sit amet ntetur {'\n'}sadipscing elitr sed diam.
           </Text>
         </View>
@@ -71,14 +95,14 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
           <Image
             source={FoodImage}
             resizeMode="contain"
-            style={{ width: '100%', height: '100%' }}
+            style={{width: '100%', height: '100%'}}
           />
         </View>
       </View>
       <View style={styles.content}>
         <Text
           numberOfLines={2}
-          style={[styles.text1, { fontFamily: 'NoirPro-SemiBold' }]}>
+          style={[styles.text1, {fontFamily: 'NoirPro-SemiBold'}]}>
           Ingredients:
         </Text>
         <View style={styles.container}>
@@ -90,12 +114,15 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
         </View>
         <Text
           numberOfLines={2}
-          style={[styles.text1, { fontWeight: 'bold', fontFamily: 'NoirPro-SemiBold' }]}>
+          style={[
+            styles.text1,
+            {fontWeight: 'bold', fontFamily: 'NoirPro-SemiBold'},
+          ]}>
           Story
         </Text>
         <Text
           numberOfLines={2}
-          style={[styles.text1, { fontFamily: 'NoirPro-Light', }]}>
+          style={[styles.text1, {fontFamily: 'NoirPro-Light'}]}>
           Add layer of season to raw chicken Place on hot stove stop pan with
           dash of olive oil at medium heat - 8 minutes Flip to other side for
           additional 7 minutes turn temperatur to Medium+ to get burn marks for
@@ -132,14 +159,19 @@ const CardCompoLG = ({ FoodImage, ButtonComponent, bgColor, checkButton, removeT
             </Text>
           </TouchableOpacity>
         )}
-        {
-          removebtn && (
-            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={onPress}>
-              <CrossIcon />
-              <Text style={{ color: Colors.Red, paddingLeft: 5, fontFamily: 'NoirPro-Regular' }}>{removeText}</Text>
-            </TouchableOpacity>
-          )
-        }
+        {removebtn && (
+          <TouchableOpacity style={{flexDirection: 'row'}} onPress={onPress}>
+            <CrossIcon />
+            <Text
+              style={{
+                color: Colors.Red,
+                paddingLeft: 5,
+                fontFamily: 'NoirPro-Regular',
+              }}>
+              {removeText}
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -179,7 +211,6 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 17,
-
   },
   textpara: {
     color: '#fff',
@@ -201,7 +232,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-
   },
   text1: {
     fontSize: WIDTH < 375 ? 10 : 12,

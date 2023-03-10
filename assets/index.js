@@ -8,7 +8,7 @@ const Assets = {
   },
 
   FoodItems: {
-    FoodItem1: require('../assets/images/fooitemA(1).png'),
+    FoodItem1: require('../assets/images/fooditem2A(1).png'),
     fooditem2: require('../assets/images/fooditem2A(1).png'),
     fooditem3: require('../assets/images/fooditem3A(1).png'),
     FoodItem4: require('../assets/images/fooditemB(1).png'),
@@ -17,6 +17,7 @@ const Assets = {
   },
 
   icon: {
+    headericon: require('../assets/images/arrowicon.png'),
     play: require('../assets/images/play1.png'),
     playR: require('../assets/images/PlayR.png'),
     google: require('./images/google.png'),

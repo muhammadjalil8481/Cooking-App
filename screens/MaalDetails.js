@@ -10,21 +10,21 @@ import React from 'react';
 import Header from '../components/Header';
 import Assets from '../assets';
 import Card from '../components/Card';
-import { Colors } from '../assets/constants/Colors';
-import { WIDTH } from '../assets/constants/Dimensions';
+import {Colors} from '../assets/constants/Colors';
+import {WIDTH} from '../assets/constants/Dimensions';
 
-const MealDetails = ({ navigation }) => {
+const MealDetails = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         bounces={false}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}>
+        contentContainerStyle={{flexGrow: 1}}>
         <View
           style={{
             flex: 1,
             paddingHorizontal: 15,
-            marginTop: 'auto',
+            marginTop: 15,
             paddingBottom: 10,
           }}>
           <Header
@@ -36,7 +36,7 @@ const MealDetails = ({ navigation }) => {
             <Image
               source={Assets.FoodItems.FoodItem1}
               resizeMode="contain"
-              style={{ width: '100%', height: '100%' }}
+              style={{width: '100%', height: '100%'}}
             />
           </View>
           <Card card1 />
@@ -66,9 +66,8 @@ const styles = StyleSheet.create({
     shadowRadius: 9.51,
     elevation: 15,
     shadowColor: '#000',
-    paddingBottom: 4
+    paddingBottom: 4,
   },
-
 });
 
 export default MealDetails;

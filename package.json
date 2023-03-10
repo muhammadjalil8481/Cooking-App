@@ -29,6 +29,7 @@
     "react-native-svg": "^13.8.0",
     "react-native-swiper-flatlist": "^3.0.18",
     "react-native-vector-icons": "^9.2.0",
+    "react-native-walkthrough-tooltip": "^1.5.0",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
