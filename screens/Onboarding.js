@@ -388,7 +388,7 @@ const Indicators = ({
             button1
             SvgICon
             buttonText="Lets Start"
-            // paddingHorizontal={WIDTH < 375 ? 5 : 15}
+            paddingHorizontal={WIDTH < 375 ? 5 : 5}
             icon="arrow-right"
             buttonColor={Colors.primary}
             textColor={Colors.secondary}
