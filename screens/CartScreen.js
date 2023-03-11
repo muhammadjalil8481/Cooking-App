@@ -1,14 +1,14 @@
-import {StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
-import React, {useState} from 'react';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import CardCompoLG from '../components/cardCompoLg';
 import Assets from '../assets';
 import ButtonComponent from '../components/buttoncompone';
-import {WIDTH} from '../assets/constants/Dimensions';
-import {Colors} from '../assets/constants/Colors';
+import { WIDTH } from '../assets/constants/Dimensions';
+import { Colors } from '../assets/constants/Colors';
 import Mymodal from '../components/Mymodal';
 
-const CartScreen = ({navigation}) => {
+const CartScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const [innerPopupVisible, setInnerPopupVisible] = useState(false);
@@ -21,12 +21,12 @@ const CartScreen = ({navigation}) => {
         <ScrollView
           bounces={false}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
           <View
             style={{
-              flex: 1,
+
               paddingHorizontal: 15,
-              marginTop: 'auto',
+              marginTop: 15,
               paddingTop: 15,
             }}>
             <Header
@@ -34,7 +34,15 @@ const CartScreen = ({navigation}) => {
               headText={'Cart'}
               onPress={() => navigation.goBack()}
             />
-            <View style={{paddingBottom: 15, paddingHorizontal: 15}}>
+          </View>
+          <View
+            style={{
+              flex: 1,
+              // paddingHorizontal: 15,
+
+            }}>
+
+            <View style={{ paddingBottom: 15, }}>
               <CardCompoLG
                 onPress={() => setModalVisible(true)}
                 removebtn={true}

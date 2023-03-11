@@ -7,20 +7,20 @@ import {
   Animated,
   ImageBackground,
 } from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Colors} from '../assets/constants/Colors';
+import React, { useState, useRef, useEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Colors } from '../assets/constants/Colors';
 import Assets from '../assets';
-import {HEIGHT, WIDTH} from '../assets/constants/Dimensions';
+import { HEIGHT, WIDTH } from '../assets/constants/Dimensions';
 import Icon from 'react-native-vector-icons/Feather';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Input from '../components/inputs';
 import ButtonComponent from '../components/buttoncompone';
-import {FAB} from 'react-native-paper';
+import { FAB } from 'react-native-paper';
 import ImgAnimation from '../components/ImgAnimation';
 // import { Fonts } from '../assets/constants/Fonts';
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   const [data, setData] = useState({
     username: '',
     password: '',
@@ -82,7 +82,7 @@ const Login = ({navigation}) => {
 
         <Animated.View
           style={{
-            transform: [{translateY: slideAnim}],
+            transform: [{ translateY: slideAnim }],
             opacity: opacityAnim,
             paddingBottom: 10,
           }}>
@@ -92,7 +92,7 @@ const Login = ({navigation}) => {
             enableAutomaticScroll={true}
             bounces={false}
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{flexGrow: 1}}>
+            contentContainerStyle={{ flexGrow: 1 }}>
             <View style={styles.contentContainer}>
               <View style={styles.loginTextContainer}>
                 <View
@@ -106,14 +106,14 @@ const Login = ({navigation}) => {
                 />
                 <Text style={styles.loginText}>Login</Text>
               </View>
-              <View style={{marginVertical: 5}} />
+              <View style={{ marginVertical: 5 }} />
               <Input
                 placeholder="Username"
                 text={data.username}
                 setText={setData}
                 formKey="username"
               />
-              <View style={{marginVertical: 10}} />
+              <View style={{ marginVertical: 10 }} />
               <Input
                 placeholder="Password"
                 text={data.password}
@@ -140,7 +140,7 @@ const Login = ({navigation}) => {
                     style={[
                       styles.text,
                       {
-                        marginLeft: 15,
+                        marginLeft: 5,
                         fontFamily: 'NoirPro-Regular',
                         color: Colors.tertiary,
                         opacity: 0.48,
@@ -181,7 +181,7 @@ const Login = ({navigation}) => {
                   width={WIDTH <= 375 ? 125 : 175}
                 />
                 <Text
-                  style={[styles.text, {color: Colors.tertiary, opacity: 0.5}]}>
+                  style={[styles.text, { color: Colors.tertiary, opacity: 0.5 }]}>
                   OR
                 </Text>
               </View>

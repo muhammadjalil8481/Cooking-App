@@ -7,19 +7,19 @@ import {
   Image,
 } from 'react-native';
 
-import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../components/Header';
 import SearchbarCompo from '../components/searchbar';
 import ButtonComponent from '../components/buttoncompone';
-import {WIDTH} from '../assets/constants/Dimensions';
+import { WIDTH } from '../assets/constants/Dimensions';
 import Assets from '../assets';
-import {MenuIcon} from '../assets/Svg/SocialSvg';
+import { MenuIcon } from '../assets/Svg/SocialSvg';
 import CardCompoLG from '../components/cardCompoLg';
-import {Colors} from '../assets/constants/Colors';
+import { Colors } from '../assets/constants/Colors';
 import MyTooltip from '../components/tooltipCompo';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onCloseTooltip = () => {
@@ -185,6 +185,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 15,
+  },
+  button1: {
+    position: 'absolute',
+    bottom: 16,
+    right: 0,
+
+    backgroundColor: '#EEEBEB',
+
+    borderRadius: 10,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+    // elevation: 15,
   },
   text: {
     color: '#fff',

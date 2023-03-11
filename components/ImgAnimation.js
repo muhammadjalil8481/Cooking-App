@@ -1,8 +1,8 @@
-import {StyleSheet, Text, Image, View, Easing, Animated} from 'react-native';
-import React, {useState, useEffect} from 'react';
-import {WIDTH} from '../assets/constants/Dimensions';
+import { StyleSheet, Text, Image, View, Easing, Animated } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { WIDTH } from '../assets/constants/Dimensions';
 
-const ImgAnimation = ({Food1, Food2}) => {
+const ImgAnimation = ({ Food1, Food2 }) => {
   // let rotateValueHolder = new Animated.Value(0);
 
   // const startImageRotateFunction = () => {
@@ -104,7 +104,7 @@ const ImgAnimation = ({Food1, Food2}) => {
             source={Food1}
             resizeMode="contain"
             style={[
-              {width: '100%'},
+              { width: '100%' },
               // animatedStyle
             ]}
           />
@@ -112,10 +112,10 @@ const ImgAnimation = ({Food1, Food2}) => {
       </View>
       <View
         style={{
-          width: 80,
-          height: 80,
+          width: 100,
+          height: 100,
           position: 'absolute',
-          right: -220,
+          right: -200,
           top: 200,
         }}>
         <Animated.View
@@ -127,7 +127,7 @@ const ImgAnimation = ({Food1, Food2}) => {
             source={Food2}
             resizeMode="contain"
             style={[
-              {width: '100%'},
+              { width: '100%' },
               //  animatedStyle
             ]}
           />

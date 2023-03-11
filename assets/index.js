@@ -8,7 +8,7 @@ const Assets = {
   },
 
   FoodItems: {
-    FoodItem1: require('../assets/images/fooditem2A(1).png'),
+    FoodItem1: require('../assets/images/fooditemC(1).png'),
     fooditem2: require('../assets/images/fooditem2A(1).png'),
     fooditem3: require('../assets/images/fooditem3A(1).png'),
     FoodItem4: require('../assets/images/fooditemB(1).png'),

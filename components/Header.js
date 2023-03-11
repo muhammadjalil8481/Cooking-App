@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
   },
   button2: {
     position: 'absolute',
-    bottom: 16,
-    right: 1,
+    bottom: 10,
+    right: -6,
     backgroundColor: '#fff',
     borderRadius: 17,
     width: 100,

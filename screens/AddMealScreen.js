@@ -5,17 +5,18 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Colors} from '../assets/constants/Colors';
-import {HEIGHT, WIDTH} from '../assets/constants/Dimensions';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Colors } from '../assets/constants/Colors';
+import { HEIGHT, WIDTH } from '../assets/constants/Dimensions';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import LinearGradient from 'react-native-linear-gradient';
 import GreyInput from '../components/greyInput';
-import {CameraICon} from '../assets/Svg/SocialSvg';
+import { CameraICon } from '../assets/Svg/SocialSvg';
 import Mymodal from '../components/Mymodal';
-const AddMealScreen = ({navigation}) => {
+import ButtonComponent from '../components/buttoncompone';
+const AddMealScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [data, setData] = useState({
     username: '',
@@ -27,7 +28,7 @@ const AddMealScreen = ({navigation}) => {
         <ScrollView
           bounces={false}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
           <View
             style={{
               flex: 1,
@@ -42,7 +43,7 @@ const AddMealScreen = ({navigation}) => {
               onPress1={() => setModalVisible(!modalVisible)}
               blueBtn
             />
-            <View style={{alignSelf: 'center'}}>
+            <View style={{ alignSelf: 'center' }}>
               <View style={styles.contentContainere}>
                 <CameraICon />
               </View>
@@ -56,7 +57,7 @@ const AddMealScreen = ({navigation}) => {
                 Upload meal {'\n'} image here
               </Text>
             </View>
-            <View style={{marginTop: 15}}>
+            <View style={{ marginTop: 15 }}>
               <LinearGradient
                 colors={['#FBF9F9', '#CCCB']}
                 style={{
@@ -79,13 +80,13 @@ const AddMealScreen = ({navigation}) => {
                   enableAutomaticScroll={true}
                   bounces={false}
                   showsVerticalScrollIndicator={false}
-                  contentContainerStyle={{flexGrow: 1}}>
+                  contentContainerStyle={{ flexGrow: 1 }}>
                   <View style={{}}>
-                    <View style={{marginVertical: 5}} />
+                    <View style={{ marginVertical: 5 }} />
                     <View style={styles.loginTextContainer}>
                       <Text style={styles.loginText}>Add Meal</Text>
                     </View>
-                    <View style={{width: '100%'}}>
+                    <View style={{ width: '100%' }}>
                       <GreyInput
                         addText={'Add Meal Title'}
                         placeholder="Ingredient #1"
@@ -109,8 +110,8 @@ const AddMealScreen = ({navigation}) => {
                     <View style={styles.loginTextContainer}>
                       <Text style={styles.loginText}>Add Meal</Text>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
-                      <View style={{width: '85%'}}>
+                    <View style={{ flexDirection: 'row' }}>
+                      <View style={{ width: '85%' }}>
                         <GreyInput
                           addText={'Add Meal Title'}
                           placeholder="Ingredient #1"
@@ -119,8 +120,8 @@ const AddMealScreen = ({navigation}) => {
                           formKey="password"
                           height={44}
                         />
-                        <View style={{width: '100%', flexDirection: 'row'}}>
-                          <View style={{width: '100%'}}>
+                        <View style={{ width: '100%', flexDirection: 'row' }}>
+                          <View style={{ width: '100%' }}>
                             <GreyInput
                               addText={'Add Meal Title'}
                               placeholder="Ingredient #2"
@@ -131,20 +132,15 @@ const AddMealScreen = ({navigation}) => {
                             />
                           </View>
                           <View>
-                            <TouchableOpacity
-                              onPress={() => navigation.navigate('HomeScreen')}
-                              style={{
-                                alignItems: 'center',
-                                justifyContent: 'space-evenly',
-                                marginTop: 5,
-                                // marginTop: 25,
-                                height: WIDTH < 375 ? 40 : 44,
-                                width: WIDTH < 375 ? 125 : 44,
-                                borderRadius: 10,
-                                backgroundColor: Colors.Red,
-                              }}>
-                              <Text style={{color: '#fff'}}>+</Text>
-                            </TouchableOpacity>
+                            <ButtonComponent
+                              plusbtn
+                              buttonText="+"
+                              buttonColor={'red'}
+                              //   textColor={Colors.secondary}
+                              // onPress={() => navigation.navigate('MealDetails')}
+                              height={WIDTH <= 375 ? 40 : 50}
+                              width={WIDTH <= 375 ? 50 : 50}
+                            />
                           </View>
                         </View>
                       </View>
@@ -152,8 +148,8 @@ const AddMealScreen = ({navigation}) => {
                     <View style={styles.loginTextContainer}>
                       <Text style={styles.loginText}>Add Story</Text>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
-                      <View style={{width: '85%'}}>
+                    <View style={{ flexDirection: 'row' }}>
+                      <View style={{ width: '85%' }}>
                         <GreyInput
                           addText={'Add Meal Title'}
                           placeholder="Story #1"
@@ -170,8 +166,8 @@ const AddMealScreen = ({navigation}) => {
                           formKey="password"
                           height={44}
                         />
-                        <View style={{width: '100%', flexDirection: 'row'}}>
-                          <View style={{width: '100%'}}>
+                        <View style={{ width: '100%', flexDirection: 'row' }}>
+                          <View style={{ width: '100%' }}>
                             <GreyInput
                               addText={'Add Meal Title'}
                               placeholder="Story #3"
@@ -182,21 +178,15 @@ const AddMealScreen = ({navigation}) => {
                             />
                           </View>
                           <View>
-                            <TouchableOpacity
-                              onPress={() => navigation.navigate('HomeScreen')}
-                              style={{
-                                alignItems: 'center',
-                                justifyContent: 'space-evenly',
-                                marginTop: 5,
-
-                                // marginTop: 25,
-                                height: WIDTH < 375 ? 40 : 44,
-                                width: WIDTH < 375 ? 125 : 44,
-                                borderRadius: 10,
-                                backgroundColor: Colors.Red,
-                              }}>
-                              <Text style={{color: '#fff'}}>+</Text>
-                            </TouchableOpacity>
+                            <ButtonComponent
+                              plusbtn
+                              buttonText="+"
+                              buttonColor={'red'}
+                              //   textColor={Colors.secondary}
+                              // onPress={() => navigation.navigate('MealDetails')}
+                              height={WIDTH <= 375 ? 40 : 50}
+                              width={WIDTH <= 375 ? 50 : 50}
+                            />
                           </View>
                         </View>
                       </View>
