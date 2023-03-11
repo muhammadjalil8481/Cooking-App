@@ -7,19 +7,19 @@ import {
   Image,
 } from 'react-native';
 
-import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, {useState} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Header from '../components/Header';
 import SearchbarCompo from '../components/searchbar';
 import ButtonComponent from '../components/buttoncompone';
-import { WIDTH } from '../assets/constants/Dimensions';
+import {WIDTH} from '../assets/constants/Dimensions';
 import Assets from '../assets';
-import { MenuIcon } from '../assets/Svg/SocialSvg';
+import {MenuIcon} from '../assets/Svg/SocialSvg';
 import CardCompoLG from '../components/cardCompoLg';
-import { Colors } from '../assets/constants/Colors';
+import {Colors} from '../assets/constants/Colors';
 import MyTooltip from '../components/tooltipCompo';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({navigation}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onCloseTooltip = () => {
@@ -41,7 +41,7 @@ const HomeScreen = ({ navigation }) => {
           <ButtonComponent
             button3
             buttonText="Add Meal"
-            paddingHorizontal={WIDTH < 375 ? 5 : 15}
+            paddingHorizontal={WIDTH < 375 ? 5 : 25}
             icon="arrow-right"
             onPress={() => navigation.navigate('AddMealScreen')}
             widthIcon={WIDTH < 375 ? 40 : 40}
