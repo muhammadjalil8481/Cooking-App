@@ -1,25 +1,15 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import Header from '../components/Header';
 import SearchbarCompo from '../components/searchbar';
 import ButtonComponent from '../components/buttoncompone';
 import {WIDTH} from '../assets/constants/Dimensions';
-import Assets from '../assets';
-import {MenuIcon} from '../assets/Svg/SocialSvg';
-import CardCompoLG from '../components/cardCompoLg';
-import {Colors} from '../assets/constants/Colors';
 import MyTooltip from '../components/tooltipCompo';
+import {Colors} from '../assets/constants/Colors';
+import CardCompoLG from '../components/cardCompoLg';
+import Assets from '../assets';
 
-const HomeScreen = ({navigation}) => {
+const Home = ({navigation}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onCloseTooltip = () => {
@@ -119,7 +109,7 @@ const HomeScreen = ({navigation}) => {
   );
 };
 
-export default HomeScreen;
+export default Home;
 
 const styles = StyleSheet.create({
   conatainer: {

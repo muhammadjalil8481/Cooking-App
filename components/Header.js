@@ -8,23 +8,30 @@ const Header = ({homeHeader, header, onPress, headText, onPress1, blueBtn}) => {
   return (
     <View>
       {homeHeader && (
-        <View style={styles.Container}>
-          <View style={{flexDirection: 'row'}}>
-            <Avatar.Image size={40} source={Assets.backgroundImages.profile} />
-            <Text
-              style={[
-                styles.text,
-                {fontFamily: 'Bouquet Typeface', fontSize: 16},
-              ]}>
-              Good Morning Alexa
-            </Text>
+        <>
+          <View style={styles.container}>
+            <View style={styles.box1}>
+              <Avatar.Image
+                size={40}
+                source={Assets.backgroundImages.profile}
+              />
+            </View>
+            <View style={styles.box2}>
+              <Text
+                style={[
+                  styles.text,
+                  {fontFamily: 'Bouquet Typeface', fontSize: 16},
+                ]}>
+                Good Morning Alexa
+              </Text>
+            </View>
+            <View style={styles.box3}>
+              <TouchableOpacity onPress={onPress} style={styles.button}>
+                <LockIcon />
+              </TouchableOpacity>
+            </View>
           </View>
-          <View style={{marginTop: 25, paddingHorizontal: 5}}>
-            <TouchableOpacity onPress={onPress} style={styles.button}>
-              <LockIcon />
-            </TouchableOpacity>
-          </View>
-        </View>
+        </>
       )}
       {header && (
         <View style={[styles.Container]}>
@@ -55,22 +62,46 @@ const Header = ({homeHeader, header, onPress, headText, onPress1, blueBtn}) => {
   );
 };
 const styles = StyleSheet.create({
-  Container: {
-    flex: 1,
-    // backgroundColor: 'green'
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '100%',
   },
+  box1: {
+    flex: 0.5,
+    // height: '100%',
+    // backgroundColor: 'red',
+  },
+  box2: {
+    flex: 3,
+    // backgroundColor: 'blue',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: 10,
+  },
+  box3: {
+    flex: 1,
+    // height: '100%',
+    // backgroundColor: 'blue',
+    alignItems: 'flex-end',
+  },
+
   fab: {
-    position: 'absolute',
-    // margin: 12,
-    backgroundColor: '#fff',
-    right: 0,
-    bottom: 0,
+    // position: 'absolute',
+    // // margin: 12,
+    // backgroundColor: '#fff',
+    // right: 0,
+    // bottom: 0,
+    // flex: 0.46,
   },
   button: {
-    position: 'absolute',
-    bottom: 16,
-    right: 1,
+    // flex: 1,
+    // position: 'absolute',
+    // bottom: 16,
+    // right: 1,
     backgroundColor: '#EEEBEB',
+    // backgroundColor: 'pink',
     borderRadius: 10,
     width: 50,
     height: 50,
