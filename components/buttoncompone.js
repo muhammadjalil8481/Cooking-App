@@ -61,7 +61,7 @@ const ButtonComponent = ({
               {buttonText}
             </Text>
             {SvgICon && (
-              <View style={{ paddingHorizontal: paddingHorizontal }}>
+              <View>
                 <View
                   style={{
                     backgroundColor: '#C00006',
