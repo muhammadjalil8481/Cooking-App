@@ -2,6 +2,28 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BrandonGrotesque-Regular.otf</string>
+		<string>Ionicons.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>NoirPro-Regular.otf</string>
+		<string>NoirPro-Medium.otf</string>
+		<string>BAHNSCHRIFT.TTF</string>
+		<string>Feather.ttf</string>
+		<string>NoirPro-SemiBold.ttf</string>
+		<string>NoirPro-Light.otf</string>
+		<string>NoirPro-Heavy.otf</string>
+		<string>Crispy-Food-DEMO.ttf</string>
+		<string>NoirPro-Italic.otf</string>
+		<string>NoirPro-BoldItalic.otf</string>
+		<string>Crispy Seafood.otf</string>
+		<string>NoirPro-LightItalic.otf</string>
+		<string>NoirPro-HeavyItalic.otf</string>
+		<string>NoirPro-Bold.otf</string>
+		<string>Bouquet Typeface.otf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

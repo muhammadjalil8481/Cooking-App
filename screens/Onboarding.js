@@ -7,14 +7,14 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Assets from '../assets';
-import { Colors } from '../assets/constants/Colors';
+import {Colors} from '../assets/constants/Colors';
 import ButtonComponent from '../components/buttoncompone';
 import deviceInfoModule from 'react-native-device-info';
-import { FAB } from 'react-native-paper';
+import {FAB} from 'react-native-paper';
 import Orientation from 'react-native-orientation-locker';
-import { Fonts } from '../assets/constants/fonts';
+import {Fonts} from '../assets/constants/fonts';
 // import Lottie from 'lottie-react-native';
 import Animated, {
   useSharedValue,
@@ -24,13 +24,13 @@ import Animated, {
   useDerivedValue,
   interpolateColor,
 } from 'react-native-reanimated';
-import { WIDTH, HEIGHT } from '../assets/constants/Dimensions';
+import {WIDTH, HEIGHT} from '../assets/constants/Dimensions';
 // import { Fonts } from '../assets/fonts/fonts';
 import ImgAnimation from '../components/ImgAnimation';
 
 let hasNotch = deviceInfoModule.hasNotch();
 
-const Onboarding = ({ navigation }) => {
+const Onboarding = ({navigation}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const ref = useRef();
 
@@ -114,7 +114,7 @@ const Onboarding = ({ navigation }) => {
     }
     if (nextSlideIndex != slides.length) {
       const offset = nextSlideIndex * WIDTH;
-      ref?.current.scrollToOffset({ offset });
+      // ref?.current.scrollToOffset({offset});
       setCurrentSlideIndex(currentSlideIndex + 1);
     }
   };
@@ -125,15 +125,15 @@ const Onboarding = ({ navigation }) => {
     }
     if (nextSlideIndex != slides.length) {
       const offset = nextSlideIndex * WIDTH;
-      ref?.current.scrollToOffset({ offset });
+      // ref?.current.scrollToOffset({offset});
       setCurrentSlideIndex(currentSlideIndex - 1);
     }
   };
   return (
     <>
-      <FlatList
+      {/* <FlatList
         ref={ref}
-        onMomentumScrollEnd={updateCurrentSlideIndex}
+        // onMomentumScrollEnd={updateCurrentSlideIndex}
         data={slides}
         contentContainerStyle={{
           alignItems: 'center',
@@ -142,10 +142,10 @@ const Onboarding = ({ navigation }) => {
         snapToAlignment="start"
         decelerationRate={'fast'}
         snapToInterval={WIDTH}
-        onScrollEndDrag={updateCurrentSlideIndex}
+        // onScrollEndDrag={updateCurrentSlideIndex}
         showsHorizontalScrollIndicator={false}
         bounces={false}
-        renderItem={({ item }) => <Slide item={item} />}
+        renderItem={({item}) => <Slide item={item} />}
       />
       <Indicators
         currentSlideIndex={currentSlideIndex}
@@ -157,14 +157,28 @@ const Onboarding = ({ navigation }) => {
         reanimatedIndicator1Style={reanimatedIndicator1Style}
         reanimatedIndicator2Style={reanimatedIndicator2Style}
         reanimatedIndicatorColorStyle={reanimatedIndicatorColorStyle}
-      />
+      /> */}
+      <View>
+        <Slide item={slides[currentSlideIndex]} />
+        <Indicators
+          currentSlideIndex={currentSlideIndex}
+          goToNextSlide={goToNextSlide}
+          goToPrevSlide={goToPrevSlide}
+          navigation={navigation}
+          reanimatedStyle={reanimatedStyle}
+          reanimatedIndicatorStyle={reanimatedIndicatorStyle}
+          reanimatedIndicator1Style={reanimatedIndicator1Style}
+          reanimatedIndicator2Style={reanimatedIndicator2Style}
+          reanimatedIndicatorColorStyle={reanimatedIndicatorColorStyle}
+        />
+      </View>
     </>
   );
 };
 
 export default Onboarding;
 
-const Slide = ({ item }) => {
+const Slide = ({item}) => {
   return (
     <View
       style={{
@@ -203,6 +217,7 @@ const Slide = ({ item }) => {
             height: HEIGHT / 2.5,
             alignItems: 'center',
           }}>
+          {/* This is the one */}
           {item.id !== 1 && (
             <>
               <View
@@ -223,19 +238,21 @@ const Slide = ({ item }) => {
               </View>
             </>
           )}
+          {/* This is the one */}
         </View>
         <View
           style={{
             paddingHorizontal: 25,
             paddingTop: HEIGHT < 700 ? HEIGHT / 15 : HEIGHT / 12.5,
           }}>
-          {item.id === 1 ? (
+          {
             <>
               <Text
                 style={[
                   styles.title,
                   {
                     lineHeight: HEIGHT < 700 ? 40 : 55,
+                    color: item.id !== 1 && Colors.primary,
                   },
                 ]}
                 numberOfLines={2}
@@ -243,55 +260,7 @@ const Slide = ({ item }) => {
                 Add your meal & meal planner
               </Text>
             </>
-          ) : item.id === 2 ? (
-            <>
-              <Text
-                style={[
-                  styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55 },
-                ]}
-                numberOfLines={2}
-                adjustsFontSizeToFit>
-                Add your meal & meal planner
-              </Text>
-            </>
-          ) : item.id === 3 ? (
-            <>
-              <Text
-                style={[
-                  styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55 },
-                ]}
-                numberOfLines={2}
-                adjustsFontSizeToFit>
-                Add your meal & meal planner
-              </Text>
-            </>
-          ) : item.id === 3 ? (
-            <>
-              <Text
-                style={[
-                  styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55 },
-                ]}
-                numberOfLines={2}
-                adjustsFontSizeToFit>
-                Add your meal & meal planner
-              </Text>
-            </>
-          ) : item.id === 4 ? (
-            <>
-              <Text
-                style={[
-                  styles.title,
-                  { color: Colors.primary, lineHeight: HEIGHT < 700 ? 40 : 55 },
-                ]}
-                numberOfLines={2}
-                adjustsFontSizeToFit>
-                Add your meal & meal planner
-              </Text>
-            </>
-          ) : null}
+          }
           <Text
             style={[
               styles.subTitle,
@@ -378,7 +347,7 @@ const Indicators = ({
             onPress={() => goToNextSlide()}
             style={[
               styles.fab,
-              { height: WIDTH < 375 ? 40 : 55, width: WIDTH < 375 ? 40 : 55 },
+              {height: WIDTH < 375 ? 40 : 55, width: WIDTH < 375 ? 40 : 55},
             ]}>
             <Image source={Assets.icon.playR} />
           </TouchableOpacity>

@@ -14,6 +14,21 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-FoodApp-FoodAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-FoodApp-FoodAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F9BFCFA229BF0189008B2270 /* NoirPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9629BF0188008B2270 /* NoirPro-Light.otf */; };
+		F9BFCFA329BF0189008B2270 /* Bouquet Typeface.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9729BF0188008B2270 /* Bouquet Typeface.otf */; };
+		F9BFCFA429BF0189008B2270 /* NoirPro-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9829BF0188008B2270 /* NoirPro-Heavy.otf */; };
+		F9BFCFA529BF0189008B2270 /* BAHNSCHRIFT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9929BF0188008B2270 /* BAHNSCHRIFT.TTF */; };
+		F9BFCFA629BF0189008B2270 /* Crispy-Food-DEMO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9A29BF0188008B2270 /* Crispy-Food-DEMO.ttf */; };
+		F9BFCFA729BF0189008B2270 /* Crispy Seafood.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9B29BF0188008B2270 /* Crispy Seafood.otf */; };
+		F9BFCFA829BF0189008B2270 /* NoirPro-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9C29BF0188008B2270 /* NoirPro-HeavyItalic.otf */; };
+		F9BFCFA929BF0189008B2270 /* NoirPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9D29BF0188008B2270 /* NoirPro-Bold.otf */; };
+		F9BFCFAA29BF0189008B2270 /* NoirPro-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCF9E29BF0188008B2270 /* NoirPro-Italic.otf */; };
+		F9BFCFAC29BF0189008B2270 /* NoirPro-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCFA029BF0189008B2270 /* NoirPro-BoldItalic.otf */; };
+		F9BFCFAD29BF0189008B2270 /* NoirPro-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCFA129BF0189008B2270 /* NoirPro-LightItalic.otf */; };
+		F9BFCFAF29BF01D2008B2270 /* NoirPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCFAE29BF01D2008B2270 /* NoirPro-SemiBold.ttf */; };
+		F9BFCFB429BF0904008B2270 /* NoirPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCFB329BF0904008B2270 /* NoirPro-Regular.otf */; };
+		F9BFCFB629BF0B69008B2270 /* NoirPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCFB529BF0B69008B2270 /* NoirPro-Medium.otf */; };
+		F9BFCFBE29BF0D32008B2270 /* BrandonGrotesque-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9BFCFBD29BF0D32008B2270 /* BrandonGrotesque-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +59,25 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FoodApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-FoodApp-FoodAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp-FoodAppTests.release.xcconfig"; path = "Target Support Files/Pods-FoodApp-FoodAppTests/Pods-FoodApp-FoodAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F9BFCF9629BF0188008B2270 /* NoirPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-Light.otf"; sourceTree = "<group>"; };
+		F9BFCF9729BF0188008B2270 /* Bouquet Typeface.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bouquet Typeface.otf"; sourceTree = "<group>"; };
+		F9BFCF9829BF0188008B2270 /* NoirPro-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-Heavy.otf"; sourceTree = "<group>"; };
+		F9BFCF9929BF0188008B2270 /* BAHNSCHRIFT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BAHNSCHRIFT.TTF; sourceTree = "<group>"; };
+		F9BFCF9A29BF0188008B2270 /* Crispy-Food-DEMO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Crispy-Food-DEMO.ttf"; sourceTree = "<group>"; };
+		F9BFCF9B29BF0188008B2270 /* Crispy Seafood.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Crispy Seafood.otf"; sourceTree = "<group>"; };
+		F9BFCF9C29BF0188008B2270 /* NoirPro-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-HeavyItalic.otf"; sourceTree = "<group>"; };
+		F9BFCF9D29BF0188008B2270 /* NoirPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-Bold.otf"; sourceTree = "<group>"; };
+		F9BFCF9E29BF0188008B2270 /* NoirPro-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-Italic.otf"; sourceTree = "<group>"; };
+		F9BFCFA029BF0189008B2270 /* NoirPro-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-BoldItalic.otf"; sourceTree = "<group>"; };
+		F9BFCFA129BF0189008B2270 /* NoirPro-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-LightItalic.otf"; sourceTree = "<group>"; };
+		F9BFCFAE29BF01D2008B2270 /* NoirPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-SemiBold.ttf"; sourceTree = "<group>"; };
+		F9BFCFB029BF0551008B2270 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		F9BFCFB329BF0904008B2270 /* NoirPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-Regular.otf"; sourceTree = "<group>"; };
+		F9BFCFB529BF0B69008B2270 /* NoirPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NoirPro-Medium.otf"; sourceTree = "<group>"; };
+		F9BFCFB729BF0BF2008B2270 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		F9BFCFB929BF0BFD008B2270 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		F9BFCFBA29BF0BFD008B2270 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		F9BFCFBD29BF0D32008B2270 /* BrandonGrotesque-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +150,25 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F9BFCFBD29BF0D32008B2270 /* BrandonGrotesque-Regular.otf */,
+				F9BFCFB929BF0BFD008B2270 /* AntDesign.ttf */,
+				F9BFCFBA29BF0BFD008B2270 /* FontAwesome.ttf */,
+				F9BFCFB729BF0BF2008B2270 /* Ionicons.ttf */,
+				F9BFCFB529BF0B69008B2270 /* NoirPro-Medium.otf */,
+				F9BFCFB329BF0904008B2270 /* NoirPro-Regular.otf */,
+				F9BFCFB029BF0551008B2270 /* Feather.ttf */,
+				F9BFCFAE29BF01D2008B2270 /* NoirPro-SemiBold.ttf */,
+				F9BFCF9929BF0188008B2270 /* BAHNSCHRIFT.TTF */,
+				F9BFCF9729BF0188008B2270 /* Bouquet Typeface.otf */,
+				F9BFCF9B29BF0188008B2270 /* Crispy Seafood.otf */,
+				F9BFCF9A29BF0188008B2270 /* Crispy-Food-DEMO.ttf */,
+				F9BFCF9D29BF0188008B2270 /* NoirPro-Bold.otf */,
+				F9BFCFA029BF0189008B2270 /* NoirPro-BoldItalic.otf */,
+				F9BFCF9829BF0188008B2270 /* NoirPro-Heavy.otf */,
+				F9BFCF9C29BF0188008B2270 /* NoirPro-HeavyItalic.otf */,
+				F9BFCF9E29BF0188008B2270 /* NoirPro-Italic.otf */,
+				F9BFCF9629BF0188008B2270 /* NoirPro-Light.otf */,
+				F9BFCFA129BF0189008B2270 /* NoirPro-LightItalic.otf */,
 				13B07FAE1A68108700A75B9A /* FoodApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FoodAppTests */,
@@ -242,8 +295,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9BFCFB629BF0B69008B2270 /* NoirPro-Medium.otf in Resources */,
+				F9BFCFB429BF0904008B2270 /* NoirPro-Regular.otf in Resources */,
+				F9BFCFA229BF0189008B2270 /* NoirPro-Light.otf in Resources */,
+				F9BFCFAD29BF0189008B2270 /* NoirPro-LightItalic.otf in Resources */,
+				F9BFCFA629BF0189008B2270 /* Crispy-Food-DEMO.ttf in Resources */,
+				F9BFCFAA29BF0189008B2270 /* NoirPro-Italic.otf in Resources */,
+				F9BFCFA929BF0189008B2270 /* NoirPro-Bold.otf in Resources */,
+				F9BFCFA829BF0189008B2270 /* NoirPro-HeavyItalic.otf in Resources */,
+				F9BFCFA329BF0189008B2270 /* Bouquet Typeface.otf in Resources */,
+				F9BFCFA429BF0189008B2270 /* NoirPro-Heavy.otf in Resources */,
+				F9BFCFA729BF0189008B2270 /* Crispy Seafood.otf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F9BFCFAF29BF01D2008B2270 /* NoirPro-SemiBold.ttf in Resources */,
+				F9BFCFA529BF0189008B2270 /* BAHNSCHRIFT.TTF in Resources */,
+				F9BFCFAC29BF0189008B2270 /* NoirPro-BoldItalic.otf in Resources */,
+				F9BFCFBE29BF0D32008B2270 /* BrandonGrotesque-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +632,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -598,6 +666,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -635,7 +704,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -661,6 +730,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
