@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import React, {useEffect, useRef, useState} from 'react';
 import Assets from '../assets';
 import {Colors} from '../assets/constants/Colors';
@@ -158,20 +159,24 @@ const Onboarding = ({navigation}) => {
         reanimatedIndicator2Style={reanimatedIndicator2Style}
         reanimatedIndicatorColorStyle={reanimatedIndicatorColorStyle}
       /> */}
-      <View>
-        <Slide item={slides[currentSlideIndex]} />
-        <Indicators
-          currentSlideIndex={currentSlideIndex}
-          goToNextSlide={goToNextSlide}
-          goToPrevSlide={goToPrevSlide}
-          navigation={navigation}
-          reanimatedStyle={reanimatedStyle}
-          reanimatedIndicatorStyle={reanimatedIndicatorStyle}
-          reanimatedIndicator1Style={reanimatedIndicator1Style}
-          reanimatedIndicator2Style={reanimatedIndicator2Style}
-          reanimatedIndicatorColorStyle={reanimatedIndicatorColorStyle}
-        />
-      </View>
+      <GestureRecognizer
+        onSwipeLeft={() => goToNextSlide()}
+        onSwipeRight={() => goToPrevSlide()}>
+        <View>
+          <Slide item={slides[currentSlideIndex]} />
+          <Indicators
+            currentSlideIndex={currentSlideIndex}
+            goToNextSlide={goToNextSlide}
+            goToPrevSlide={goToPrevSlide}
+            navigation={navigation}
+            reanimatedStyle={reanimatedStyle}
+            reanimatedIndicatorStyle={reanimatedIndicatorStyle}
+            reanimatedIndicator1Style={reanimatedIndicator1Style}
+            reanimatedIndicator2Style={reanimatedIndicator2Style}
+            reanimatedIndicatorColorStyle={reanimatedIndicatorColorStyle}
+          />
+        </View>
+      </GestureRecognizer>
     </>
   );
 };
