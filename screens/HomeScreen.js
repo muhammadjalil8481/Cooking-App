@@ -46,7 +46,7 @@ const HomeScreen = ({navigation}) => {
             onPress={() => navigation.navigate('AddMealScreen')}
             widthIcon={WIDTH < 375 ? 40 : 40}
             height={WIDTH < 375 ? 40 : 40}
-            width={WIDTH < 375 ? 370 : 370}
+            width={WIDTH < 375 ? 340 : 370}
           />
         </View>
         <View style={{flex: 1, marginTop: 15, paddingHorizontal: 25}}>
