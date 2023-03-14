@@ -131,6 +131,7 @@ const AddMealScreen = ({ navigation }) => {
                               height={44}
                             />
                           </View>
+                          {/* new code  */}
                           <View>
                             <ButtonComponent
                               plusbtn
