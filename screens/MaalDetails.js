@@ -5,15 +5,45 @@ import {
   StyleSheet,
   SafeAreaView,
   ScrollView,
+  Animated,
+  Easing,
 } from 'react-native';
-import React from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import Header from '../components/Header';
 import Assets from '../assets';
 import Card from '../components/Card';
 import {Colors} from '../assets/constants/Colors';
-import {WIDTH} from '../assets/constants/Dimensions';
 
 const MealDetails = ({navigation}) => {
+  const slideAnim = useRef(new Animated.Value(100)).current;
+  const opacityAnim = useRef(new Animated.Value(0.75)).current;
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      Animated.parallel([
+        Animated.timing(slideAnim, {
+          toValue: 0,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(opacityAnim, {
+          toValue: 1,
+          duration: 700,
+          useNativeDriver: true,
+        }),
+      ]).start();
+    }, 500); // Delay in milliseconds
+
+    return () => clearTimeout(delay);
+  }, [slideAnim, opacityAnim]);
+
+  // useEffect(() => {
+  //   Animated.timing(translation, {
+  //     toValue: 100,
+  //     duration: 2000,
+  //     useNativeDriver: true,
+  //   }).start();
+  // }, []);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -32,14 +62,22 @@ const MealDetails = ({navigation}) => {
             headText={'Green Salad'}
             onPress={() => navigation.goBack()}
           />
-          <View style={styles.contentContainere}>
-            <Image
-              source={Assets.FoodItems.FoodItem1}
-              resizeMode="contain"
-              style={{width: '100%', height: '100%'}}
-            />
-          </View>
-          <Card card1 />
+          <Animated.View
+            style={[
+              {
+                transform: [{translateX: slideAnim}],
+                opacity: opacityAnim,
+              },
+            ]}>
+            <View style={styles.contentContainere}>
+              <Image
+                source={Assets.FoodItems.FoodItem1}
+                resizeMode="contain"
+                style={{width: '100%', height: '100%'}}
+              />
+            </View>
+            <Card card1 />
+          </Animated.View>
         </View>
       </ScrollView>
     </SafeAreaView>

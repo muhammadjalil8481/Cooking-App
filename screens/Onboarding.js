@@ -28,6 +28,7 @@ import Animated, {
 import {WIDTH, HEIGHT} from '../assets/constants/Dimensions';
 // import { Fonts } from '../assets/fonts/fonts';
 import ImgAnimation from '../components/ImgAnimation';
+import TextAnimation from '../components/textAnimation';
 
 let hasNotch = deviceInfoModule.hasNotch();
 
@@ -245,39 +246,13 @@ const Slide = ({item}) => {
           )}
           {/* This is the one */}
         </View>
-        <View
-          style={{
-            paddingHorizontal: 25,
-            paddingTop: HEIGHT < 700 ? HEIGHT / 15 : HEIGHT / 12.5,
-          }}>
-          {
-            <>
-              <Text
-                style={[
-                  styles.title,
-                  {
-                    lineHeight: HEIGHT < 700 ? 40 : 55,
-                    color: item.id !== 1 && Colors.primary,
-                  },
-                ]}
-                numberOfLines={2}
-                adjustsFontSizeToFit>
-                Add your meal & meal planner
-              </Text>
-            </>
-          }
-          <Text
-            style={[
-              styles.subTitle,
-              {
-                color: item.id !== 1 ? '#fff' : Colors.tertiary,
-                lineHeight: HEIGHT < 700 ? 25 : 30,
-              },
-            ]}
-            numberOfLines={2}
-            adjustsFontSizeToFit>
-            {item.subtitle}
-          </Text>
+        <View>
+          <TextAnimation
+            title={item.title}
+            subtitle={item.subtitle}
+            color1={item.id !== 1 ? Colors.primary : '#1E0203'}
+            color2={item.id !== 1 ? '#fff' : Colors.tertiary}
+          />
         </View>
       </ImageBackground>
     </View>
@@ -377,7 +352,6 @@ const Indicators = ({
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -386,21 +360,6 @@ const styles = StyleSheet.create({
     height: HEIGHT,
     width: WIDTH,
     paddingTop: HEIGHT / 12.5,
-  },
-  title: {
-    fontFamily: 'Crispy Seafood',
-    fontSize: 34.25,
-    fontWeight: 500,
-    color: '#1E0203',
-    letterSpacing: 1.75,
-  },
-  subTitle: {
-    fontFamily: Fonts.default,
-    fontSize: 16,
-    fontWeight: 200,
-    color: '#1E0203',
-    marginTop: 10,
-    marginBottom: 65,
   },
   indicator: {
     height: 13,
@@ -430,7 +389,7 @@ const styles = StyleSheet.create({
 const slides = [
   {
     id: 1,
-    title: '!',
+    title: 'Get Yourself Healthy & Strong with Us!',
     subtitle:
       'Lorem ipsum dolor sit amet, consetetur sscing elitr, sed diam nonumy eirmod tempor',
   },
@@ -441,7 +400,6 @@ const slides = [
     Food2: Assets.FoodItems.fooditem2,
     subtitle:
       'Lorem ipsum dolor sit amet, consetetur sscing elitr, sed diam nonumy eirmod tempor',
-    // animation: Assets.animation.onboardAnimation2,
   },
   {
     id: 3,
@@ -450,7 +408,7 @@ const slides = [
     Food2: Assets.FoodItems.fooditem6,
     subtitle:
       'Lorem ipsum dolor sit amet, consetetur sscing elitr, sed diam nonumy eirmod tempor',
-    // animation: Assets.animation.onboardAnimation3,
+
   },
   {
     id: 4,
@@ -459,6 +417,6 @@ const slides = [
     Food2: Assets.FoodItems.FoodItem1,
     subtitle:
       'Lorem ipsum dolor sit amet, consetetur sscing elitr, sed diam nonumy eirmod tempor',
-    // animation: Assets.animation.onboardAnimation3,
+   
   },
 ];

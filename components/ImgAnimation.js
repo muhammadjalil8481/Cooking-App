@@ -1,13 +1,10 @@
 import {StyleSheet, Text, Image, View, Easing, Animated} from 'react-native';
 import React, {useState, useEffect, useRef} from 'react';
-import {WIDTH} from '../assets/constants/Dimensions';
 
 const ImgAnimation = ({Food1, Food2}) => {
-  // let rotateValueHolder = new Animated.Value(0);
   const translateXValue = useRef(new Animated.Value(20)).current;
   const translateYValue = useRef(new Animated.Value(300)).current;
   const scaleXValue = useRef(new Animated.Value(0.1)).current;
-
   const translateXValueSmall = useRef(new Animated.Value(-70)).current;
   const translateYValueSmall = useRef(new Animated.Value(-295)).current;
   const scaleXValueSmall = useRef(new Animated.Value(3.5)).current;
@@ -100,11 +97,6 @@ const ImgAnimation = ({Food1, Food2}) => {
       useNativeDriver: true,
     }).start();
   };
-
-  // useEffect(() => {
-  //   animate1();
-  //   animate2();
-  // });
   useEffect(() => {
     setTimeout(() => setF1(Food1), 1000);
     setTimeout(() => setF2(Food2), 1000);
@@ -114,86 +106,7 @@ const ImgAnimation = ({Food1, Food2}) => {
       animate1();
       animate2();
     }, 1000);
-
-    // animate1();
-    // animate2();
   }, [translateXValue, Food1, Food2]);
-  // const startImageRotateFunction = () => {
-  //   rotateValueHolder.setValue(0);
-  //   Animated.timing(rotateValueHolder, {
-  //     toValue: 1,
-  //     duration: 500,
-  //     easing: Easing.linear,
-  //     useNativeDriver: false,
-  //   }).start(() => startImageRotateFunction());
-  // };
-
-  // const RotateData = rotateValueHolder.interpolate({
-  //   inputRange: [1, 1],
-  //   outputRange: ['0deg', '360deg'],
-  // });
-  // const position = new Animated.ValueXY({x: 0, y: 0});
-  // const position1 = new Animated.ValueXY({x: 0, y: 0});
-  // const [animation] = useState(new Animated.Value(0));
-
-  // useEffect(() => {
-  //   Animated.spring(position, {
-  //     toValue: 250,
-  //     duration: 3000,
-  //     easing: Easing.circle, // Easing is an additional import from react-native
-  //     useNativeDriver: true,
-  //   }).start();
-
-  //   Animated.timing(animation, {
-  //     toValue: {x: 200, y: 200},
-  //     duration: 3000,
-  //     easing: Easing.circle, // Easing is an additional import from react-native
-  //     useNativeDriver: true,
-  //   }).start();
-  //   console.log(animation.ValueXY);
-  // }, []);
-  // useEffect(() => {
-  //   Animated.spring(position1, {
-  //     toValue: -250,
-  //     duration: 3000,
-  //     easing: Easing.circle, // Easing is an additional import from react-native
-  //     useNativeDriver: true,
-  //   }).start();
-  //   Animated.timing(animation, {
-  //     toValue: {x: 200, y: 200},
-  //     duration: 3000,
-  //     easing: Easing.circle, // Easing is an additional import from react-native
-  //     useNativeDriver: true,
-  //   }).start();
-  //   console.log(animation.ValueXY);
-  // }, []);
-
-  // useEffect(() => {
-  //   Animated.timing(animation, {
-  //     toValue: 0.6,
-  //     duration: 9000,
-  //     useNativeDriver: true,
-  //   }).start();
-  // }, []);
-
-  // const rotate = animation.interpolate({
-  //   inputRange: [1, 1],
-  //   outputRange: ['360deg', '0deg'],
-  // });
-  // const scale = animation.interpolate({
-  //   inputRange: [1, 1],
-  //   outputRange: [2, 2],
-  // });
-  // const animatedStyle = {
-  //   transform: [{rotate}, {scaleY: 1}],
-  // };
-
-  // useEffect(() => {
-  //   startImageRotateFunction();
-  //   setTimeout(() => {
-  //     // navigation.replace('login');
-  //   }, 3000);
-  // }, []);
 
   return (
     <>
@@ -202,13 +115,8 @@ const ImgAnimation = ({Food1, Food2}) => {
           width: '100%',
           height: '90%',
           position: 'absolute',
-          // right: -110,
-          // right: 10,
-          // left: -80,
-          // top: -105,
         }}>
         <Animated.View
-          // onPress={handleClickX}
           style={{
             paddingLeft: 30,
             paddingLeft: 30,
@@ -221,10 +129,7 @@ const ImgAnimation = ({Food1, Food2}) => {
           <Animated.Image
             source={f1}
             resizeMode="contain"
-            style={[
-              {width: '100%'},
-              // animatedStyle
-            ]}
+            style={[{width: '100%'}]}
           />
         </Animated.View>
       </View>
@@ -244,15 +149,11 @@ const ImgAnimation = ({Food1, Food2}) => {
               {translateY: translateYValueSmall},
               {scale: scaleXValueSmall},
             ],
-            // transform: [{translateY: position1.y}]
           }}>
           <Animated.Image
             source={f2}
             resizeMode="contain"
-            style={[
-              {width: '100%'},
-              //  animatedStyle
-            ]}
+            style={[{width: '100%'}]}
           />
         </Animated.View>
       </View>
@@ -261,5 +162,4 @@ const ImgAnimation = ({Food1, Food2}) => {
 };
 
 export default ImgAnimation;
-
 const styles = StyleSheet.create({});
